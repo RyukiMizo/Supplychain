@@ -8,19 +8,19 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get help" do
-    get help_url
+    get help_path
     assert_response :success
     assert_select "title", "Help | Branding"
   end
 
   test "should get about" do
-    get about_url
+    get about_path
     assert_response :success
     assert_select "title", "About | Branding"
   end
   
   test "should get contact" do
-    get contact_url
+    get contact_path
     assert_response :success
     assert_select "title", "Contact | Branding"
   end
