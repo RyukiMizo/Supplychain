@@ -1,6 +1,7 @@
 <% provide(:title, "編集する") %>
 <h1>プロフィールを編集する</h1>
 
+<div class="edit">
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
@@ -19,18 +20,18 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       
       <span class="image">
-      <%= f.label :image,"プロフィール画像" %>
-      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+      <%= f.label :thumbnail,"プロフィール画像" %>
+      <%= f.file_field :thumbnail, accept: 'image/jpeg,image/gif,image/png' %>
       </span>
 
       <%= f.submit "変更を保存", class: "btn btn-primary" %>
     <% end %>
-
-    <div class="gravatar_edit">
-      <%= image_tag @user.image.url if @user.image? %>
-      <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
-    </div>
+  <div class="gravatar-edit">
+      <%= image_tag @user.thumbnail.url if @user.thumbnail? %>
   </div>
+    
+  </div>
+</div>
 </div>
 
 <script type="text/javascript">

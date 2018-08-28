@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place: 1
+  date: 2018-08-27
+  information: MyText
+
+two:
+  place: 1
+  date: 2018-08-27
+  information: MyText

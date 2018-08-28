@@ -1,16 +1,51 @@
-<%= form_for(@micropost) do |f| %>
+<div class="product-form">
+<%= form_for(@micropost, html:{class: 'form-horizontal'}) do |f| %>
+
 <%= render 'shared/error_messages', object: f.object %>
+
+    <table class="table table-striped table-bordered table-hover product-table">
+        <tbody>
+            <tr>
+               <th class="product-body">商品名</th>
+               <th class="product-image">画像</th>
+            </tr>
+                <td class="product-body"><%= f.text_field :product, placeholder: "商品名を入力してください" %></td>
+                <td class="product-image"><%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %></td>
+        </tbody>
+    </table>
+
+
 </div>
-<div class="field">
-  　<%= f.label :product_name, "商品名" %>
-    <%= f.text_field :product_name, placeholder: "商品名を入力してください" %>
+
+<div class="block-form">
+  <table class="table table-striped table-bordered table-hover">
+          <tbody>
+            <tr>
+               <th>場所</th>
+               <th>時期</th>
+               <th>詳細情報</th>
+               <th>Action</th>
+            </tr>
+            <%= f.nested_fields_for :blocks, wrapper_tag: :tr do |q| %>
+                <td><%= q.select :place, Block.places.keys, {},
+                                     class: 'form-control' %></td>
+                <td><%= q.date_select :date, class: 'form-control' %></td>
+                <td><%= q.text_area   :information, placeholder: "入力してください",
+                                      class: 'form-control' %>
+                    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+                </td>
+                <td><%= q.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
+            <% end %>
+        </tbody>
+      </table>
+      <%= f.add_nested_fields_link :blocks, '情報を追加', class: 'btn btn-primary add-block-btn', role: 'button' %><br>
 </div>
-<span class="image">
-    <%= f.label :image, "画像" %>
-    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
-</span>
-<%= f.submit "作成", class: "btn btn-primary" %>
+</div>
+
+<%= f.submit "作成", class: "btn btn-primary submit" %>
 <% end %>
+
+
 
 <script type="text/javascript">
   $('#micropost_image').bind('change', function() {

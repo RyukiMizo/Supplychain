@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
     
     def create
         @micropost = current_user.microposts.build(micropost_params)
-        if @micropost.save
+        if @micropost.save 
             flash[:success] = "投稿完了"
             redirect_to root_url
         else
@@ -21,7 +21,9 @@ class MicropostsController < ApplicationController
     private
     
     def micropost_params
-        params.require(:micropost).permit(:product_name, :image)
+        params.require(:micropost).permit(:product, :image,
+                blocks_attributes: [:id, :place, :date, :information, 
+                                    :micropost_id, :_destroy, :picture])
     end
     
     def correct_user
