@@ -8,6 +8,10 @@
       </h1>
       <div class="introduction">
         <h1>自己紹介</h1>
+        <p><%= @user.introduction.content %></p>
+        <% if @user ==current_user %>
+        <%= link_to '自己紹介を編集', "/introduction/#{@user.id}" %>
+        <% end %>
       </div>
       
     </section>

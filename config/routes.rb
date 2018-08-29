@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'users/new'
+  
 
   root 'static_pages#home'
   get '/help', to: 'static_pages#help'
@@ -13,5 +14,11 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :users
   resources :microposts, only:[:create, :destroy]
+  
+  get '/introduction/:id', to: 'introduction#new'
+  resources :introduction, only:[:create, :update]
+  
+
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

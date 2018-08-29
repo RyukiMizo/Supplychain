@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   
+  
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "削除しました"
@@ -17,6 +18,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
   end
+
+
 
   def new
     @user = User.new
@@ -51,7 +54,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :thumbnail)
+                                   :password_confirmation, :thumbnail, :introduction)
     end
   
     
