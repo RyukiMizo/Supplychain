@@ -1,0 +1,11 @@
+<div class="basic-information">
+    <% provide(:title, "#{@micropost.product}の詳細情報") %>
+    <h1><%= @micropost.product %></h1>
+    <%= image_tag @micropost.image, class: "product-image"%>
+</div>
+
+
+
+<%= Block.places.keys[@blocks[0].place + 1] %>
+<%= @blocks[0].date %>
+<%= @blocks[0].information %>
