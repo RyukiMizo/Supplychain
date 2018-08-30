@@ -11,3 +11,25 @@ ja:
         email: メールアドレス
         salon_id: サロン
         password: パスワード
+
+ja:
+  activerecord:
+    models:
+      micropost: 投稿
+    attributes:
+      micropost:
+        id: ID
+        product: 商品名
+        image: 商品の写真
+      micropost/block:
+        information: 詳細情報
+
+ja:
+  activerecord:
+    attributes:
+      micropost:
+        product: 商品名
+      micropost/blocks:
+        information: 詳細情報
+      block:
+        information: 詳細情報

@@ -67,6 +67,10 @@ p {
   text-decoration: none;
 }
 
+.postf {
+  margin-top: 10px;
+  margin-left: 350px;
+}
 /* footer */
 
 footer {
@@ -302,14 +306,26 @@ input {
   margin: auto;
 }
 
-#block-bs-0, #block-bs-1 {
+.product-trajectory {
+  border: solid 2px #000000;
+}
+
+#place-0, #place-1, #date-0, #date-1 {
   background: #E0FFFF;
   border: solid 2px #000000;
   width: 20%;
   text-align: center;
 }
 
+#inf-0, #inf-1 {
+  display: inline-block
+}
+
 #block-inf-0, #block-inf-1 {
   margin-top: 10px;
   border: solid 2px #000000;
+}
+
+.qr {
+  text-align: center;
 }

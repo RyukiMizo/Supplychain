@@ -1,24 +1,31 @@
-<% range = (0..20) %>
-<%= range.each do |n| %>
+<% count = @blocks.count %>
 
-<div id="block-<%= n %>">
+<% count.times do |n| %>
+
   <% if @blocks[n] %>
   
-    <div id="block-bs-<%= n %>">
+    <div id="place-<%= n %>">
       <%= Block.places.keys[@blocks[n].place] %>
+    </div>
+    <div id="date-<%= n %>">
       <%= @blocks[n].date %><br>
     </div>
     
     <div id="block-inf-<%= n %>">
     <%= image_tag @blocks[n].picture.url if @blocks[n].picture? %>
-    <%= @blocks[n].information %>
+      <div id="inf-<%= n %>">
+        <%= simple_format(@blocks[n].information) %>
+      </div>
     </div>
     
-</div>
-  
-    |<br>
-    |<br>
-    |<br>
-    |<br>
+
+      <% if @blocks[n] != @blocks.last %>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+      <% end %>
     <% end %>
 <% end %>
+
+
