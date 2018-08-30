@@ -2,7 +2,10 @@
   <div class="container">
     <%= link_to "Branding", root_path, id: "logo" %>
     <nav>
+      
+      <% if logged_in? %>
       <%= link_to  "投稿する", root_path, class: "btn btn-success postf" %>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         
         <% if not_logged_in? %>
