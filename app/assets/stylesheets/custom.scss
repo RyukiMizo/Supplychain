@@ -310,18 +310,20 @@ input {
   border: solid 2px #000000;
 }
 
-#place-0, #place-1, #date-0, #date-1 {
+#place-0, #place-1, #place-2, #place-3, #place-4, #place-5, #place-6, #place-7, #place-8, 
+#date-0, #date-1, #date-2, #date-3, #date-4, #date-5, #date-6, #date-7, #date-8, #date-9  {
   background: #E0FFFF;
   border: solid 2px #000000;
   width: 20%;
   text-align: center;
 }
 
-#inf-0, #inf-1 {
+#inf-0, #inf-1 #inf-2, #inf-3, #inf-4, #inf-5, #inf-6, #inf-7, #inf-8,  {
   display: inline-block
 }
 
-#block-inf-0, #block-inf-1 {
+#block-inf-0, #block-inf-1, #block-inf-2, #block-inf-3, #block-inf-4, 
+#block-inf-5, #block-inf-6, #block-inf-7, #block-inf-8,  {
   margin-top: 10px;
   border: solid 2px #000000;
 }
