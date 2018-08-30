@@ -32,7 +32,7 @@
                 <td><%= q.date_select :date, class: 'form-control' %></td>
                 <td><%= q.text_area   :information, placeholder: "入力してください",
                                       class: 'form-control' %>
-                    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+                    <%= q.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
                 </td>
                 <td><%= q.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
             <% end %>

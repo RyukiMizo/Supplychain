@@ -297,9 +297,19 @@ input {
 
 
 /* postpages */
-.basic-information {
-  .product-image {
+.product-image {
   display: block;
   margin: auto;
-  }
+}
+
+#block-bs-0, #block-bs-1 {
+  background: #E0FFFF;
+  border: solid 2px #000000;
+  width: 20%;
+  text-align: center;
+}
+
+#block-inf-0, #block-inf-1 {
+  margin-top: 10px;
+  border: solid 2px #000000;
 }
