@@ -3,9 +3,21 @@ class MicropostsController < ApplicationController
     before_action :correct_user, only: [:destroy, :edit, :update]
     
     def edit
+        @micropost = Micropost.find(params[:id])
+        @blocks = @micropost.blocks
+        @micropost.photo.cache! unless @micropost.photo.blank?
+        number = @blocks.count
+        number.times do |n|
+          @blocks[n].picture.cache! unless @blocks[n].picture.blank?
+        end
     end
     
     def update
+        @micropost = Micropost.find(params[:id])
+        if @micropost.update_attributes(micropost_params)
+            flash[:success] = "更新完了"
+            redirect_to request.referrer || root_url
+        end
     end
     
     def show
@@ -32,8 +44,8 @@ class MicropostsController < ApplicationController
     private
     
     def micropost_params
-        params.require(:micropost).permit(:product, :photo,
-                blocks_attributes: [:id, :place, :date, :information, 
+        params.require(:micropost).permit(:product, :photo, :photo_cache,
+                blocks_attributes: [:id, :place, :date, :information, :picture_cache,
                                     :micropost_id, :_destroy, :picture])
     end
     

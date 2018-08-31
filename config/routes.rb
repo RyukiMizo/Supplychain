@@ -12,8 +12,11 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users
-  get '/postspage/:id', to: 'microposts#show'
+  get '/postpage/edit/:id', to: 'microposts#edit'
+  get '/postpage/:id', to: 'microposts#show'
   delete '/postpage/:id', to: 'microposts#destroy'
-  resources :microposts, only:[:create]
+  
+  
+  resources :microposts, only:[:create, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
