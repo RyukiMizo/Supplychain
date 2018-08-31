@@ -1,6 +1,12 @@
 class MicropostsController < ApplicationController
-    before_action :logged_in_user, only: [:create, :destroy]
-    before_action :correct_user, only: [:destroy]
+    before_action :logged_in_user, only: [:create, :destroy, :edit, :update]
+    before_action :correct_user, only: [:destroy, :edit, :update]
+    
+    def edit
+    end
+    
+    def update
+    end
     
     def show
         @micropost = Micropost.find(params[:id])
@@ -26,7 +32,7 @@ class MicropostsController < ApplicationController
     private
     
     def micropost_params
-        params.require(:micropost).permit(:product, :image,
+        params.require(:micropost).permit(:product, :photo,
                 blocks_attributes: [:id, :place, :date, :information, 
                                     :micropost_id, :_destroy, :picture])
     end

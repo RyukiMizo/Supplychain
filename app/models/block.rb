@@ -21,7 +21,7 @@ end
 private
 
 def picture_size
-  if image.size > 5.megabytes
-    errors.add(:image, "容量が5MBを超えています")
+  if picture.size > 5.megabytes
+    errors.add(:picture, "容量が5MBを超えています")
   end
 end

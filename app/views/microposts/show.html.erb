@@ -3,13 +3,13 @@
   <div class="col-md-3">
           
     <h1><%= @micropost.product %></h1>
-    <%= image_tag @micropost.image, class: "product-image"%><br>
+    <%= image_tag @micropost.photo, class: "product-image"%><br>
     <div class="qr"><%= qrcode_tag request.url, module_size: 2 %></div><br>
     
   </div>
 
   <div class="col-md-9 product-trajectory">
-    <h1>商品の軌跡</h1>
+    <h1>ストーリー</h1>
     <%= render 'microposts/block' %>
 
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180828014559) do
+ActiveRecord::Schema.define(version: 20180831075121) do
 
   create_table "blocks", force: :cascade do |t|
     t.integer "place"
@@ -22,12 +22,20 @@ ActiveRecord::Schema.define(version: 20180828014559) do
     t.string "picture"
   end
 
+  create_table "introductions", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_introductions_on_user_id"
+  end
+
   create_table "microposts", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
+    t.string "photo"
     t.string "product"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
@@ -42,6 +50,7 @@ ActiveRecord::Schema.define(version: 20180828014559) do
     t.string "remember_digest"
     t.boolean "admin", default: false
     t.string "thumbnail"
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
