@@ -1,0 +1,29 @@
+<%= provide(:title, "自己紹介の編集") %>
+<h1>自己紹介の編集</h1>
+
+<div class="introduction-new">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@introduction, :method => :patch) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :affilitation, "所属" %><br>
+      <%= f.text_field :affilitation, placeholder: "所属している組織、企業",
+                        class: 'affilitation' %><br><br>
+                        
+      <%= f.label :prefecture, "居住地" %><br>
+      <%= f.select :prefecture, Block.places.keys, {}, class: 'int-place' %><br><br>
+      
+      <%= f.label :content, "自己紹介" %>
+      <%= f.text_area :content, placeholder: "文章を入力してください(1000文字以内)",
+                        class: 'introduction-text' %>
+      <p> 1000文字以内</p><br>
+                        
+      <%= f.label :site, "サイト・ブログ" %><br>
+      <%= f.text_field :site, class: 'site' %>
+      <p>100文字以内</p><br><br>
+      
+      <%= f.submit "作成", class: "btn btn-primary  int-submit" %>
+    <% end %>
+  </div>
+</div>
+</div>

@@ -297,6 +297,7 @@ input {
 }
 .introduction-submit {
 　width: 100%;
+
 }
 
 
@@ -342,4 +343,64 @@ input {
 
 .back-btn {
   margin-left: 420px;
+}
+
+/* introduction  */
+.affilitation {
+  width: 90%;
+}
+
+.site {
+  width: 90%;
+}
+
+.int-submit {
+  display: block;
+ margin: auto;
+ width: 40%;
+}
+
+/* プロフィール*/
+.user_info {
+  h1{
+    border: solid 1px #000000;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+.introduction-p {
+    border: solid 1px #000000;
+    border-radius: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    
+  .aff, .pre, .cont, .site-p {
+      padding-left: 10px;
+  }
+  .aff-l, .pre-l, .cont-l, .site-l {
+    background-color: #EEEEEE;
+    text-align: center;
+  }
+}
+
+.int-btn {
+  display: block;
+  margin: auto;
+}
+
+.user-in {
+  background-color: #EEEEEE;
+  width: 70%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+}
+.user-inf {
+padding-left: 160px;
 }

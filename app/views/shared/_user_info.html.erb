@@ -1,5 +1,8 @@
-<div class="user-info">
-<%= image_tag current_user.thumbnail.url if current_user.thumbnail? %>
-<h1><%= current_user.name %></h1>
-<span><%= link_to "プロフィール", current_user %></span>
+<div class="user-inf">
+<div class="user-in">
+    <%= image_tag current_user.thumbnail.url if current_user.thumbnail? %>
+    <p><%= current_user.name %></p>
+    <span><%= link_to "プロフィール", current_user %></span>
 </div>
+</div>
+

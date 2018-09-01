@@ -29,7 +29,7 @@ class MicropostsController < ApplicationController
         @micropost = current_user.microposts.build(micropost_params)
         if @micropost.save 
             flash[:success] = "投稿完了"
-            redirect_to root_url
+            redirect_to user_url(current_user)
         else
             render 'static_pages/home'
         end

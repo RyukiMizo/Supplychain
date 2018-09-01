@@ -3,12 +3,28 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= image_tag @user.thumbnail.url if @user.thumbnail? %>
-        <%= @user.name %>
+        <%= image_tag @user.thumbnail.url if @user.thumbnail?%><br>
+        <%= @user.name %><br>
       </h1>
-      <div class="introduction">
-        <h1>自己紹介</h1>
+      <div class="introduction-p">
+        <p class="aff-l">所属</p>
+        <p class="aff"><%= @user.introduction.affilitation %></p>
+        <p class="pre-l">居住地</p>
+        <p class="pre"><%= Block.places.keys[@user.introduction.prefecture] %></p>
+        <p class="cont-l">自己紹介</p>
+        <p class="cont"><%= simple_format(@user.introduction.content) %></p>
+        <p class="site-l">サイト・ブログ等</p>
+        <p class="site-p"><%= @user.introduction.site %></p>
       </div>
+        <% if @user == current_user && @user.introduction.content.blank? %>
+        <%= link_to '自己紹介を作成', "/introduction/#{@user.id}" %>
+        <% end %>
+        
+        <% if @user == current_user && @user.introduction.content.present? %>
+        <%= link_to '自己紹介を編集', "/introduction/edit/#{@user.id}", 
+                    class: 'btn btn-default int-btn' %>
+        <% end %>
+      
       
     </section>
   </aside>
