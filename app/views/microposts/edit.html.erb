@@ -9,7 +9,7 @@
     <%= f.text_field :product %><br><br>
     
     <%= f.label :photo, "商品画像" %>
-    <%= f.file_field :photo, accept: 'image/jpeg,image/gif,image/png' %><br><br>
+    <%= f.file_field :photo, accept: 'image/jpeg,image/gif,image/png', value: :photo %><br><br>
     <%= f.hidden_field :photo_cache %>
   </div>
     
@@ -28,7 +28,7 @@
                 <td><%= q.date_select :date, class: 'form-control' %></td>
                 <td><%= q.text_area   :information, placeholder: "入力してください",
                                       class: 'form-control' %>
-                <%= q.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %></td>
+                <%= q.file_field :picture, accept: 'image/jpeg,image/gif,image/png'%></td>
                 <%= q.hidden_field :picture_cache %>
                 <td><%= q.link_to_remove '削除', class: 'btn btn-danger', role: 'button' %></td>
               </tr>
