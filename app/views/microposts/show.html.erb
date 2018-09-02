@@ -5,7 +5,7 @@
     <h1><%= @micropost.product %></h1>
     <%= image_tag @micropost.photo, class: "product-image"%><br>
     <div class="qr"><%= qrcode_tag request.url, module_size: 2 %><br><br>
-    <% if @micropost.user_id == current_user.id %>
+    <% if @micropost.user == current_user %>
       <%= link_to  "編集する", "/postpage/edit/#{params[:id]}", class: "btn btn-warning "%>
     <% end %>
     </div>
