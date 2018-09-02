@@ -8,17 +8,18 @@
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :affilitation, "所属" %><br>
       <%= f.text_field :affilitation, placeholder: "所属している組織、企業",
-                        class: 'affilitation' %><br><br>
+                        class: 'affilitation' %><br>60文字以内<br><br>
                         
       <%= f.label :prefecture, "居住地" %><br>
       <%= f.select :prefecture, Block.places.keys, {}, class: 'int-place' %><br><br>
       
       <%= f.label :content, "自己紹介" %>
-      <%= f.text_area :content, placeholder: "文章を入力してください(1000文字以内)",
-                        class: 'introduction-text' %><br><br>
+      <%= f.text_area :content, placeholder: "文章を入力してください",
+                        class: 'introduction-text' %>1000文字以内<br><br>
                         
       <%= f.label :site, "サイト・ブログ" %><br>
-      <%= f.text_field :site, class: 'site' %><br><br>
+      <%= f.text_field :site, class: 'site' %><br>255文字以内<br><br>
+      
       
       <%= f.submit "作成", class: "btn btn-primary  int-submit" %>
     <% end %>
