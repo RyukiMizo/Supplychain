@@ -6,15 +6,28 @@
         <%= image_tag @user.thumbnail.url if @user.thumbnail?%><br>
         <%= @user.name %><br>
       </h1>
+      
       <div class="introduction-p">
+        <% if @user.introduction.affilitation.present? %>
         <p class="aff-l">所属</p>
         <p class="aff"><%= @user.introduction.affilitation %></p>
+        <% end %>
+        
+        <% if @user.introduction.prefecture.present? %>
         <p class="pre-l">居住地</p>
         <p class="pre"><%= Block.places.keys[@user.introduction.prefecture] %></p>
+        <% end %>
+        
+        <% if @user.introduction.content.present? %>
         <p class="cont-l">自己紹介</p>
         <p class="cont"><%= simple_format(@user.introduction.content) %></p>
+        <% end %>
+        
+        <% if @user.introduction.site.present? %>
         <p class="site-l">サイト・ブログ等</p>
         <p class="site-p"><%= @user.introduction.site %></p>
+        <% end %>
+        
       </div>
         <% if @user == current_user && @user.introduction.content.blank? %>
         <%= link_to '自己紹介を作成', "/introduction/#{@user.id}" %>
