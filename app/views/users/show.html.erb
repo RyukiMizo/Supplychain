@@ -8,32 +8,26 @@
       </h1>
       
       <div class="introduction-p">
-        <% if @user.introduction.affilitation.present? %>
         <p class="aff-l">所属</p>
-        <p class="aff"><%= @user.introduction.affilitation %></p>
-        <% end %>
+        <p class="aff"><%= @user.introduction.affilitation if @user.introduction.affilitation? %></p>
         
-        <% if @user.introduction.prefecture.present? %>
+        
         <p class="pre-l">居住地</p>
-        <p class="pre"><%= Block.places.keys[@user.introduction.prefecture] %></p>
-        <% end %>
-        
-        <% if @user.introduction.content.present? %>
+        <p class="pre"><%= Block.places.keys[@user.introduction.prefecture] if @user.introduction.prefecture.present? %></p>
+
         <p class="cont-l">自己紹介</p>
-        <p class="cont"><%= simple_format(@user.introduction.content) %></p>
-        <% end %>
-        
-        <% if @user.introduction.site.present? %>
+        <p class="cont"><%= simple_format(@user.introduction.content) if @user.introduction.content?%></p>
+
         <p class="site-l">サイト・ブログ等</p>
-        <p class="site-p"><%= @user.introduction.site %></p>
-        <% end %>
+        <p class="site-p"><%= @user.introduction.site if @user.introduction.site?%></p>
+   
         
       </div>
-        <% if @user == current_user && @user.introduction.content.blank? %>
+        <% if @user == current_user && @user.introduction.prefecture.blank? %>
         <%= link_to '自己紹介を作成', "/introduction/#{@user.id}" %>
         <% end %>
         
-        <% if @user == current_user && @user.introduction.content.present? %>
+        <% if @user == current_user && @user.introduction.prefecture.present? %>
         <%= link_to '自己紹介を編集', "/introduction/edit/#{@user.id}", 
                     class: 'btn btn-default int-btn' %>
         <% end %>
