@@ -3,7 +3,11 @@ include CarrierWave::MiniMagick
 process resize_to_limit: [200, 200]
   
   
-storage :file
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
 
 # アップロードファイルの保存先ディレクトリは上書き可能
   # 下記はデフォルトの保存先  
