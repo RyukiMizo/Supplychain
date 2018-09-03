@@ -8,6 +8,7 @@
     <% if @micropost.user == current_user %>
       <%= link_to  "編集する", "/postpage/edit/#{params[:id]}", class: "btn btn-warning "%>
     <% end %>
+    <%= link_to  "チェーンを追加する", root_path, class: "btn btn-success add-chain", role: 'button'%>
     </div>
     
   </div>
