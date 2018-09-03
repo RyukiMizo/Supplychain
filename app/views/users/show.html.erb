@@ -29,7 +29,7 @@
         
         <% if @user == current_user && @user.introduction.present? %>
         <%= link_to '自己紹介を編集', "/introduction/edit/#{@user.id}", 
-                    class: 'btn btn-default int-btn' %>
+                    class: 'btn btn-primary int-btn' %>
         <% end %>
       
       

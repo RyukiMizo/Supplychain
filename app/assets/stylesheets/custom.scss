@@ -323,7 +323,7 @@ input {
 
 #inf-0, #inf-1, #inf-2, #inf-3, #inf-4, #inf-5, #inf-6, #inf-7, #inf-8, #inf-9, #inf-10,  
 #inf-11, #inf-12, #inf-13, #inf-14, #inf-15, #inf-16, #inf-17, #inf-18, #inf-19, #inf-20{
-  display: inline-block
+  display: inline-block;
 }
 
 #block-inf-0, #block-inf-1, #block-inf-4, #block-inf-7, #block-inf-10, #block-inf-13, #block-inf-16, 
@@ -331,6 +331,17 @@ input {
 #block-inf-3, #block-inf-6, #block-inf-9, #block-inf-12, #block-inf-15, {
   margin-top: 10px;
   border: solid 2px #000000;
+
+}
+
+.picture-n {
+display: table;
+}
+
+.img-n {
+  display: inline-block;
+
+  vertical-align: top;
 }
 
 .qr {

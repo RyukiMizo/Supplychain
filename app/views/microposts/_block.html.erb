@@ -12,10 +12,14 @@
     </div>
     
     <div id="block-inf-<%= n %>">
-    <%= image_tag @blocks[n].picture.url if @blocks[n].picture? %>
-      <div id="inf-<%= n %>">
+      <div class="picture-n">
+        <%= image_tag @blocks[n].picture.url, class:'img-n' if @blocks[n].picture? %>
+        <div id="inf-<%= n %>">
         <%= simple_format(@blocks[n].information) %>
+        </div>
       </div>
+    
+
     </div>
     
 
