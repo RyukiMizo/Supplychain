@@ -1,0 +1,66 @@
+<% chain_count = @chains.count %>
+
+<% chain_count.times do |k| %>
+
+  
+  <!-- 以下はchains[k]の中のdeepchainを展開することを目的とする。 -->
+  <!-- chainの中にはたくさんのdeepchainがある。 -->
+  <% deep_number = @chains[k].deepchains.count %>
+  <% @deepchains = @chains[k].deepchains %>
+  
+  <% deep_number.times do |d| %>
+  
+  <div class="basic-block">
+  <!-- 以下でdeepchains[d]の場所と日時を出力。 -->
+    <div class="block-infom">
+    <div id="place-<%= k %>">
+      <%= Block.places.keys[@deepchains[d].place] %>
+    </div>
+    <div id="date-<%= k %>">
+      <%= @deepchains[d].date %><br>
+    </div>
+    </div>
+    
+    
+    <div class="block-user">
+    　<!-- chains[n]を作ったユーザーを定義する。紐づいているuser_idから -->
+      <% user = User.find_by(id: @chains[k].user_id) %>
+
+      <%= image_tag user.thumbnail.url, :size => '47x47' if user.thumbnail? %>
+      <%= link_to user.name, user_path(user) %>
+    </div>
+    
+  </div>
+    <!-- deepchainのinformationとpictureを出力 -->
+    <div id="block-inf-<%= k %>">
+      <div class="picture-n">
+        <%= image_tag @deepchains[d].chainpicture.url, class:'img-n' if @deepchains[d].chainpicture? %>
+        <div id="inf-<%= k %>">
+        <%= simple_format(@deepchains[d].information) %>
+        </div>
+      </div>
+    </div>
+<!-- ここまででdeepchain[d]は終わり。d+1がある場合は以下のコードを実行することになる。 -->
+    
+    <% if @deepchains[d] != @deepchains.last %>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+    <% end %>
+    
+    <% end %>
+    <!-- ⬆️　deepchainが最後まで行ったら終わり -->
+  
+  
+  
+  
+<!-- chainが終わったかを見る。 -->
+ 　 <% if @chains[k] != @chains.last %>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+　　<% end %>
+      
+<% end %>

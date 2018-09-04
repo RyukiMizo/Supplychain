@@ -23,6 +23,7 @@ class MicropostsController < ApplicationController
     def show
         @micropost = Micropost.find(params[:id])
         @blocks = @micropost.blocks
+        @chains = @micropost.chains
     end
     
     def create

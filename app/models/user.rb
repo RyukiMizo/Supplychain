@@ -2,6 +2,7 @@ class User < ApplicationRecord
     mount_uploader :thumbnail, ThumbnailUploader
     has_many :microposts, dependent: :destroy
     has_one :introduction, dependent: :destroy
+    has_many :chains, dependent: :destroy
     attr_accessor :remember_token
     before_save {self.email = self.email.downcase}
     validates :name, presence: true, length: {maximum: 50}

@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   
   get '/chains/:id', to: 'chains#new'
   post '/chains/:id', to: 'chains#create'
-  resources :chains, only:[:create, :update]
+  resources :chains, only:[:update]
  end

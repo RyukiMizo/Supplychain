@@ -1,6 +1,6 @@
-<% count = @blocks.count %>
+<% block_count = @blocks.count %>
 
-<% count.times do |n| %>
+<% block_count.times do |n| %>
 
   <% if @blocks[n] %>
   <div class="basic-block">
@@ -34,7 +34,6 @@
 
     </div>
     
-
       <% if @blocks[n] != @blocks.last %>
         |<br>
         |<br>
@@ -44,6 +43,17 @@
     <% end %>
 <% end %>
 
+<!-- 上でblockは終わり。下からはchainとその中のdeepchainを記述していく。 -->
+
+  <% if @chains %>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+  
+
+<%= render 'microposts/chain' %>
+  <% end %>
 
 
 
