@@ -6,14 +6,17 @@ class Micropost < ApplicationRecord
   validate :photo_size 
   validates :product, presence: true
   has_many :blocks, dependent: :destroy
+  has_many :chains, dependent: :destroy
   accepts_nested_attributes_for :blocks, allow_destroy: true
   
   
   private
   
-  def photo_size
-    if photo.size > 5.megabytes
-      errors.add(:image, "容量が5MBを超えています")
-    end
+def photo_size
+  if photo.size > 5.megabytes
+    errors.add(:photo, "容量が5MBを超えています")
   end
+end
+
+
 end

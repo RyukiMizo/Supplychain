@@ -27,4 +27,8 @@ Rails.application.routes.draw do
   post '/introductions/:id', to: 'introductions#create'
   patch '/introductions/:id', to: 'introductions#update'
   resources :introductions, only:[:create, :destroy]
+  
+  get '/chains/:id', to: 'chains#new'
+  post '/chains/:id', to: 'chains#create'
+  resources :chains, only:[:create, :update]
  end
