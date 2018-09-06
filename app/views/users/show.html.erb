@@ -6,7 +6,7 @@
         <%= image_tag @user.thumbnail.url if @user.thumbnail?%><br>
         <%= @user.name %><br>
         <%= render 'users/stats' %>
-        <%= render 'follow_form' %>
+        <%= render 'follow_form' if logged_in? %>
       </h1>
       
       <div class="introduction-p">
