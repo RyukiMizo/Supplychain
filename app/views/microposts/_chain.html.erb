@@ -1,7 +1,7 @@
 <% chain_count = @chains.count %>
 
 <% chain_count.times do |k| %>
-
+<div class="chain-<%= k %>">
   
   <!-- 以下はchains[k]の中のdeepchainを展開することを目的とする。 -->
   <!-- chainの中にはたくさんのdeepchainがある。 -->
@@ -41,7 +41,7 @@
       </div>
     </div>
 <!-- ここまででdeepchain[d]は終わり。d+1がある場合は以下のコードを実行することになる。 -->
-    
+</div>
     <% if @deepchains[d] != @deepchains.last %>
         |<br>
         |<br>

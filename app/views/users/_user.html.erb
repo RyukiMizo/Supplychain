@@ -1,0 +1,11 @@
+
+     <li>
+         <%= image_tag user.thumbnail.url if user.thumbnail? %>
+         <%= link_to user.name, user %>
+         <% if current_user.admin? && !current_user?(user) %>
+         | <%= link_to "delete", user, method: :delete,
+               date: {confirm: "本当に削除してもよろしいですか？"} %>
+         <% end %>
+     </li>
+
+  

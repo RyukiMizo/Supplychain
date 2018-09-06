@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   get '/postpage/edit/:id', to: 'microposts#edit'
   get '/postpage/:id', to: 'microposts#show'
@@ -31,4 +35,6 @@ Rails.application.routes.draw do
   get '/chains/:id', to: 'chains#new'
   post '/chains/:id', to: 'chains#create'
   resources :chains, only:[:update]
+  
+  resources :relationships, only:[:destroy, :create]
  end

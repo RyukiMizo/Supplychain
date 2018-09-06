@@ -428,10 +428,75 @@ padding-left: 160px;
 
 .add-chain {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* chain */
 .contact-area {
   width: 40%;
   height: 100px;
+}
+
+/*
+$base-color: #FFFFCC;
+
+.chain-0 {
+  background-color: $base-color ;
+}
+.chain-1 {
+  background-color: saturate($base-color, 5%)
+}
+.chain-2 {
+  background-color: saturate($base-color, 10%)
+}
+.chain-3 {
+  background-color: saturate($base-color, 15%)
+}
+.chain-4 {
+  background-color: saturate($base-color, 20%)
+}
+.chain-5 {
+  background-color: saturate($base-color, 25%)
+}
+.chain-6 {
+  background-color: saturate($base-color, 30%)
+}
+.chain-7 {
+  background-color: saturate($base-color, 35%)
+}
+ */
+ 
+ 
+/* stats */
+
+.stats {
+  overflow: auto;
+  margin-top: 10px;
+  margin-left: 50px;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+/* follow */
+.btn-follow, .btn-unfollow {
+  border-radius: 30px;
+  margin-top: 10px;
+}
+.btn-follow {
+  border: 1px solid #000080;
 }
