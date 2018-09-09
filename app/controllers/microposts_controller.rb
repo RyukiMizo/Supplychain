@@ -1,11 +1,21 @@
 class MicropostsController < ApplicationController
-    before_action :logged_in_user, only: [:create, :destroy, :edit, :update]
+    before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new]
     before_action :correct_user, only: [:destroy, :edit, :update]
+    
+    def index
+        if logged_in?
+          @feed_items = current_user.feed.paginate(page: params[:page])
+        end
+    end
+    
+    def new
+        @micropost = current_user.microposts.build if logged_in?
+        @micropost.blocks.build if logged_in?
+    end
     
     def edit
         @micropost = Micropost.find(params[:id])
         @blocks = @micropost.blocks
-        @micropost.photo.cache! unless @micropost.photo.blank?
         number = @blocks.count
         number.times do |n|
           @blocks[n].picture.cache! unless @blocks[n].picture.blank?
@@ -47,8 +57,8 @@ class MicropostsController < ApplicationController
     private
     
     def micropost_params
-        params.require(:micropost).permit(:product, :photo, :photo_cache,
-                blocks_attributes: [:id, :place, :date, :information, :picture_cache,
+        params.require(:micropost).permit(:product, :photo,
+                blocks_attributes: [:id, :place, :date, :information,
                                     :micropost_id, :_destroy, :picture])
     end
     

@@ -7,12 +7,20 @@ class ChainsController < ApplicationController
     def create
         @chain = current_user.chains.build(chain_params)
         @chain.micropost_id = params[:id]
-        if @chain.save 
-            flash[:success] = "作成完了"
-            redirect_to "/postpage/#{params[:id]}"
-        else
-            render 'static_pages/home'
-        end
+        @user = Micropost.find(params[:id]).user
+          if current_user.followers.include?(@user) || current_user == @user
+              
+            if @chain.save
+              flash[:success] = "作成完了"
+              redirect_to "/postpage/#{params[:id]}"
+            else
+              render 'new'
+            end 
+            
+          else
+              flash[:danger] = "フォローされていないため追加権限がありません"
+              redirect_to user_url(@user)
+          end
     end
     
     private

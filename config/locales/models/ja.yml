@@ -33,3 +33,10 @@ ja:
         information: 詳細情報
       block:
         information: 詳細情報
+
+ja:
+  activerecord:
+    attributes:
+      chain:
+        deepchains: チェーン
+

@@ -3,7 +3,7 @@
   <div class="col-md-3">
           
     <h1><%= @micropost.product %></h1>
-    <%= image_tag @micropost.photo, class: "product-image"%><br>
+    <%= image_tag @micropost.photo.url, class: "product-image" if @micropost.photo? %><br>
     <div class="qr"><%= qrcode_tag request.url, module_size: 2 %><br><br>
     <% if @micropost.user == current_user %>
       <%= link_to  "編集する", "/postpage/edit/#{params[:id]}", class: "btn btn-warning "%>
@@ -17,7 +17,6 @@
   <div class="col-md-9 product-trajectory">
     <h1>ストーリー</h1>
     <%= render 'microposts/block' %>
-
   </div>
 
 </div>

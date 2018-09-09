@@ -1,7 +1,12 @@
 <%= nested_form_for(@chain, url: "/chains/#{params[:id]}") do |f| %>
 
-<%= render 'shared/error_messages', object: f.object %>
-
+<% if @chain.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <li>内容を入力してください</li>
+    </ul>
+  </div>
+    <% end %>
   <div class="field">
     <%= f.label :contact, "投稿者へのメッセージ" %><br>
     <%= f.text_area :contact, class: 'contact-area' %><br><br>
