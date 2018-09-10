@@ -1,5 +1,14 @@
 class ChainsController < ApplicationController
-    before_action :logged_in_user, only: [:new]
+    before_action :logged_in_user, only: [:new, :create, :destroy]
+    before_action :correct_user, only: [:destroy]
+    
+    def destroy
+        @deepchain.destroy
+        flash[:success] = "削除完了"
+        redirect_to request.referrer || root_url
+        
+    end
+    
     def new
         @chain = current_user.chains.build if logged_in?
         @chain.deepchains.build if logged_in?
@@ -36,5 +45,12 @@ class ChainsController < ApplicationController
             params.require(:chain).permit(:contact,
                    deepchains_attributes: [:id, :place, :date, :information, :chain_id,
                                        :_destroy, :chainpicture])
+    end
+    
+    def correct_user
+        @deepchain = Deepchain.find(params[:id])
+        if current_user != @deepchain.chain.user
+          redirect_to root_url
+        end
     end
 end

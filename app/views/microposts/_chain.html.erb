@@ -15,7 +15,7 @@
   <!-- 以下でdeepchains[d]の場所と日時を出力。 -->
     <div class="block-infom">
     <div id="place-1">
-      <%= Block.places.keys[@deepchains[d].place] %>
+      <%= @deepchains[d].place %>
     </div>
     <div id="date-1">
       <%= @deepchains[d].date %><br>
@@ -26,7 +26,10 @@
     <div class="chain-user">
     　<!-- chains[n]を作ったユーザーを定義する。紐づいているuser_idから -->
       <% user = User.find_by(id: @chains[k].user_id) %>
-
+　　　<% if user == current_user %>
+　　　<%= link_to '削除', "/chains/#{@deepchains[d].id}", method: :delete,
+                      data: {confirm: "本当に削除してもよろしいですか？"} %>
+　　　<% end %>
       <%= image_tag user.thumbnail.url, :size => '47x47' if user.thumbnail? %>
       <%= link_to user.name, user_path(user) %>
     </div>

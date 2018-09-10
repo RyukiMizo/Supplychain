@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180905021506) do
+ActiveRecord::Schema.define(version: 20180910022020) do
 
   create_table "blocks", force: :cascade do |t|
-    t.integer "place"
     t.date "date"
     t.text "information"
     t.datetime "created_at", null: false
@@ -21,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180905021506) do
     t.integer "micropost_id"
     t.string "picture"
     t.string "picture_cache"
+    t.text "place"
   end
 
   create_table "chains", force: :cascade do |t|
@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 20180905021506) do
 
   create_table "deepchains", force: :cascade do |t|
     t.date "date"
-    t.integer "place"
     t.text "information"
     t.string "chainpicture"
     t.integer "chain_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "place"
     t.index ["chain_id"], name: "index_deepchains_on_chain_id"
   end
 
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20180905021506) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "affilitation"
-    t.integer "prefecture"
     t.string "site"
+    t.text "prefecture"
     t.index ["user_id"], name: "index_introductions_on_user_id"
   end
 

@@ -6,7 +6,7 @@
       <li>内容を入力してください</li>
     </ul>
   </div>
-    <% end %>
+<% end %>
   <div class="field">
     <%= f.label :contact, "投稿者へのメッセージ" %><br>
     <%= f.text_area :contact, class: 'contact-area' %><br><br>
@@ -22,7 +22,7 @@
             </tr>
               <%= f.fields_for :deepchains, :wrapper => false do |q| %>
               <tr class="fields">
-                <td><%= q.select :place, Block.places.keys, {},
+                <td><%= q.text_field :place,
                                      class: 'form-control' %></td>
                 <td><%= q.date_select :date, class: 'form-control' %></td>
                 <td><%= q.text_area   :information, placeholder: "入力してください",

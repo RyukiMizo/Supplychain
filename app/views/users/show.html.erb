@@ -15,13 +15,14 @@
         
         
         <p class="pre-l">居住地</p>
-        <p class="pre"><%= Block.places.keys[@user.introduction.prefecture] unless @user.introduction.nil? %></p>
+        <p class="pre"><%= @user.introduction.prefecture unless @user.introduction.nil? %></p>
 
         <p class="cont-l">自己紹介</p>
         <p class="cont"><%= simple_format(@user.introduction.content) unless @user.introduction.nil? %></p>
 
         <p class="site-l">サイト・ブログ等</p>
-        <p class="site-p"><%= @user.introduction.site unless @user.introduction.nil? %></p>
+        <p class="site-p"><a href="<%= @user.introduction.site unless @user.introduction.nil? %>"></a></p>
+        
    
         
       </div>

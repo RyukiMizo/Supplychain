@@ -3,8 +3,9 @@ class Micropost < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   default_scope -> {order(created_at: :desc)}
   validates :user_id, presence: true
-  validate :photo_size 
+  validate :photo_size
   validates :product, presence: true
+  validates :blocks, associated: true
   has_many :blocks, dependent: :destroy
   has_many :chains, dependent: :destroy
   accepts_nested_attributes_for :blocks, allow_destroy: true

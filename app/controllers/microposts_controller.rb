@@ -42,7 +42,7 @@ class MicropostsController < ApplicationController
             flash[:success] = "投稿完了"
             redirect_to user_url(current_user)
         else
-            render 'static_pages/home'
+            render 'new'
         end
     end
     

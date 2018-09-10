@@ -11,7 +11,7 @@
                         class: 'affilitation' %><br>60文字以内<br><br>
                         
       <%= f.label :prefecture, "居住地" %><br>
-      <%= f.select :prefecture, Block.places.keys, {}, class: 'int-place' %><br><br>
+      <%= f.text_field :prefecture, class: 'int-place' %><br><br>
       
       <%= f.label :content, "自己紹介" %>
       <%= f.text_area :content, placeholder: "文章を入力してください",

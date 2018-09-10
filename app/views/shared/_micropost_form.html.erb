@@ -1,10 +1,15 @@
 <%= nested_form_for(@micropost) do |f| %>
 
-<%= render 'shared/error_messages', object: f.object %>
-
+<% if @micropost.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <li>内容を入力してください</li>
+    </ul>
+  </div>
+<% end %>
   <div class="field">
     
-    <%= f.label :product %>
+    <%= f.label :product, "商品名" %>
     <%= f.text_field :product %><br><br>
     
     <%= f.label :photo, "商品画像", class: 'btn btn-warning'%>
@@ -26,8 +31,7 @@
             </tr>
               <%= f.fields_for :blocks, :wrapper => false do |q| %>
               <tr class="fields">
-                <td><%= q.select :place, Block.places.keys, {},
-                                     class: 'form-control' %></td>
+                <td><%= q.text_field :place, class: 'form-control' %></td>
                 <td><%= q.date_select :date, class: 'form-control' %></td>
                 <td><%= q.text_area   :information, placeholder: "入力してください",
                                       class: 'form-control' %>

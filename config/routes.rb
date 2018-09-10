@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   
   get '/chains/:id', to: 'chains#new'
   post '/chains/:id', to: 'chains#create'
+  delete 'chains/:id', to: 'chains#destroy'
   resources :chains, only:[:update]
   
   resources :relationships, only:[:destroy, :create]
