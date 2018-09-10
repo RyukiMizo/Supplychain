@@ -25,8 +25,7 @@
             </tr>
               <%= f.fields_for :blocks, :wrapper => false do |q| %>
               <tr class="fields">
-                <td><%= q.select :place, Block.places.keys, {},
-                                     class: 'form-control' %></td>
+                <td><%= q.text_field :place, class: 'form-control' %></td>
                 <td><%= q.date_select :date, class: 'form-control' %></td>
                 <td><%= q.text_area   :information, placeholder: "入力してください",
                                       class: 'form-control' %>

@@ -45,13 +45,13 @@
       </div>
     </div>
 <!-- ここまででdeepchain[d]は終わり。d+1がある場合は以下のコードを実行することになる。 -->
-
     <% if @deepchains[d] != @deepchains.last %>
-
+      <% unless @deepchains[d].nil? %> <!-- 削除されていた場合　-->
+deepchain|<br>
 |<br>
 |<br>
 |<br>
-|<br>
+       <% end %>
     <% end %>
 
     <% end %>
@@ -60,14 +60,14 @@
   
   
       </div> 
-<!-- chainが終わったかを見る。 -->
- 　 <% if @chains[k] != @chains.last %>
-<div>
+  <% if @chains[k] != @chains.last %><!-- chainが終わったかを見る。 -->
+   <% unless Deepchain.find_by(chain_id: @chains[k].id).nil? %><!-- deepchainがない場合。 -->
+   
 |<br>
 |<br>
 |<br>
 |<br>
-</div>
-　　<% end %>
+    <% end %>
+　<% end %>
       
 <% end %>
