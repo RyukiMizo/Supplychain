@@ -5,7 +5,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@introduction, :method => :post) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :affilitation, "所属" %><br>
       <%= f.text_field :affilitation, placeholder: "所属している組織、企業",
                         class: 'affilitation' %><br>60文字以内<br><br>

@@ -16,7 +16,8 @@ class IntroductionsController < ApplicationController
       flash[:success] = "投稿完了！"
       redirect_to user_url(current_user)
     else
-      render 'static_pages/home'
+      flash[:danger] = "更新失敗：　入力内容に不備があります"
+      redirect_to request.referrer || root_url
     end
   end
   
@@ -26,7 +27,7 @@ class IntroductionsController < ApplicationController
       flash[:success] = "更新完了!"
       redirect_to user_url(current_user)
     else
-      flash[:danger] = "更新失敗"
+      flash[:danger] = "更新失敗：　入力内容に不備があります"
       redirect_to request.referrer || root_url
     end
       

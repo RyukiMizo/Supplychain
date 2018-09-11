@@ -20,8 +20,9 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       
       <span class="image">
-      <%= f.label :thumbnail,"プロフィール画像" %>
-      <%= f.file_field :thumbnail, accept: 'image/jpeg,image/gif,image/png' %>
+      <%= f.label :thumbnail,"プロフィール画像", class: "btn btn-warning btn-pro" %>
+      <%= f.file_field :thumbnail, accept: 'image/jpeg,image/gif,image/png',
+                       style: "display:none;"%>
       </span>
 
       <%= f.submit "変更を保存", class: "btn btn-primary" %>
