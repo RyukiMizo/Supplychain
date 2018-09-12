@@ -3,7 +3,6 @@ class IntroductionsController < ApplicationController
   before_action :correct_user, only: [:update, :edit]
   
   def edit
-    @introduction = current_user.introduction
   end
   
   def new
@@ -16,17 +15,17 @@ class IntroductionsController < ApplicationController
       flash[:success] = "投稿完了！"
       redirect_to user_url(current_user)
     else
-      flash[:danger] = "更新失敗：　入力内容に不備があります"
+      flash[:danger] = "投稿失敗：　入力内容に不備があります"
       redirect_to request.referrer || root_url
     end
   end
   
   def update
-    @introduction = current_user.introduction
     if @introduction.update_attributes(introduction_params)
       flash[:success] = "更新完了!"
       redirect_to user_url(current_user)
     else
+      @introduction.attributes = introduction_params
       flash[:danger] = "更新失敗：　入力内容に不備があります"
       redirect_to request.referrer || root_url
     end
@@ -45,5 +44,6 @@ class IntroductionsController < ApplicationController
     redirect_to root_url if @introduction.nil?
   end
   
+    
 end
 

@@ -13,7 +13,6 @@
         <p class="aff-l">所属</p>
         <p class="aff"><%= @user.introduction.affilitation unless @user.introduction.nil? %></p>
         
-        
         <p class="pre-l">居住地</p>
         <p class="pre"><%= @user.introduction.prefecture unless @user.introduction.nil? %></p>
 
@@ -22,8 +21,6 @@
 
         <p class="site-l">サイト・ブログ等のURL</p>
         <p class="site-p"><a href="<%= @user.introduction.site unless @user.introduction.nil? %>"><%= @user.introduction.site unless @user.introduction.nil? %></a></p>
-        
-   
         
       </div>
         <% if @user == current_user && @user.introduction.blank? %>

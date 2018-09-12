@@ -10,7 +10,6 @@
   <% @deepchains = @chains[k].deepchains %>
   
   <% deep_number.times do |d| %>
-  
 
   <% unless @deepchains[d].nil? %> <!-- 削除されていた場合　-->
 |<br>
@@ -18,7 +17,6 @@
 |<br>
 |<br>
   <% end %>
-
   
   <div class="basic-block">
   <!-- 以下でdeepchains[d]の場所と日時を出力。 -->
@@ -54,12 +52,8 @@
       </div>
     </div>
 
-
     <% end %>
     <!-- ⬆️　deepchainが最後まで行ったら終わり -->
   
-  
-  
       </div> 
-      
 <% end %>
