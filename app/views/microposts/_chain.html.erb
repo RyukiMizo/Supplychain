@@ -33,7 +33,7 @@
     <div class="chain-user">
     　<!-- chains[n]を作ったユーザーを定義する。紐づいているuser_idから -->
       <% user = User.find_by(id: @chains[k].user_id) %>
-　　　<% if user == current_user %>
+　　　<% if user == current_user || current_user == @micropost.user %>
 　　　<%= link_to '削除', "/chains/#{@deepchains[d].id}", method: :delete,
                       data: {confirm: "本当に削除してもよろしいですか？"} %>
 　　　<% end %>
