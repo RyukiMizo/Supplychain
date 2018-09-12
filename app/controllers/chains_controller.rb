@@ -49,7 +49,7 @@ class ChainsController < ApplicationController
     
     def correct_user
         @deepchain = Deepchain.find(params[:id])
-        if current_user != @deepchain.chain.user
+        if current_user != @deepchain.chain.user && current_user != @deepchain.chain.micropost.user
           redirect_to root_url
         end
     end
