@@ -1,0 +1,16 @@
+<% provide(:title, 'フォローユーザーの商品') %>
+<h1>フォローユーザーの商品</h1>
+<% if @microposts.any? %>
+<!-- 検索　-->
+<div class="post-search">
+<%= form_tag '/postpages/follow', method: :get do %>
+<%= text_field_tag :search %>
+<%= submit_tag '検索', product: nil %>
+<% end %>
+</div>
+
+  <ol class="microposts-index">
+    <%= render @microposts %>
+  </ol>
+  <%= will_paginate @microposts %>
+<% end %>

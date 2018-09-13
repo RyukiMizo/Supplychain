@@ -38,7 +38,7 @@
   <div class="col-md-8">
     <% if @user.microposts.any? %>
       <h3>投稿数<%= @user.microposts.count %></h3>
-      <ol class="microposts">
+      <ol class="microposts-index">
         <%= render @microposts %>
       </ol>
       <%= will_paginate @microposts %>

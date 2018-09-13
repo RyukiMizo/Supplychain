@@ -11,6 +11,14 @@ class Micropost < ApplicationRecord
   accepts_nested_attributes_for :blocks, allow_destroy: true
   
   
+  def self.search(search)
+    if search
+      where(['product LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+  
   private
   
 def photo_size

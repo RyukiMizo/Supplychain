@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).search(params[:search])
   end
 
   def show
@@ -19,7 +19,11 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
-
+  def follow_index
+     if logged_in?
+        @microposts = current_user.feed.paginate(page: params[:page]).search(params[:search])
+     end
+  end
 
   def new
     @user = User.new
