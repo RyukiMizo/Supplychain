@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get '/postpage/new', to: 'microposts#new'
   get '/postpage/edit/:id', to: 'microposts#edit'
   get '/postpage/:id', to: 'microposts#show'
-  get 'postpages', to: 'microposts#index'
+  get '/postpages/follow', to: 'users#follow_index'
+  get '/postpages', to: 'microposts#index'
   delete '/postpage/:id', to: 'microposts#destroy'
   
   

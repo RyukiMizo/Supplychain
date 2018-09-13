@@ -2,10 +2,10 @@ class MicropostsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new]
     before_action :correct_user, only: [:destroy, :edit, :update]
     
+
+    
     def index
-        if logged_in?
-          @feed_items = current_user.feed.paginate(page: params[:page])
-        end
+        @microposts = Micropost.all.paginate(page: params[:page]).search(params[:search])
     end
     
     def new

@@ -1,7 +1,23 @@
-<h1>投稿</h1>
-<% if @feed_items.any? %>
-  <ol class="microposts">
-    <%= render @feed_items %>
-  </ol>
-  <%= will_paginate @feed_items %>
-<% end %>
+<% provide(:title, '商品一覧') %>
+<h1>商品一覧</h1>
+
+　<h2>商品数<%= @microposts.count %></h2>
+　<!-- 検索機能　-->
+　<div class="post-search">
+　  <%= form_tag '/postpages', method: :get do %>
+　  <%= text_field_tag :search %>
+　  <%= submit_tag '検索', product: nil %>
+　  <% if logged_in? %>
+　  <div class=" follow-index-btn">
+　    <%= link_to 'フォローユーザーの商品', '/postpages/follow', class: "btn btn-primary" %>
+  　</div>
+  　<% end %>
+  　<% end %>
+　</div>
+
+     <ol class="microposts-index">
+        <%= render @microposts %>
+     </ol>
+<%= will_paginate @microposts %>
+
+

@@ -410,6 +410,7 @@ display: table;
     
   .aff, .pre, .cont, .site-p {
       padding-left: 10px;
+      text-align: center;
   }
   .aff-l, .pre-l, .cont-l, .site-l {
     background-color: #EEEEEE;
@@ -512,4 +513,41 @@ $base-color: #FFFFCC;
 /* img-btn*/
 #img2 {
  
+}
+
+/* post-index */
+
+.microposts-index {
+
+}
+.index-block {
+  width: 40%;
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+}
+
+a.index-pro {
+  display: inline-block;
+  text-align: center
+}
+a.index-delete {
+  display: inline-block;
+}
+.index-pic {
+  text-align: center;
+}
+
+.index-under {
+  text-align: center;
+}
+
+.microposts-index {
+  text-align: center;
+}
+
+.post-search {
+  text-align: center;
+}
+.follow-index-btn{
+  display: inline-block;
 }
