@@ -19,7 +19,7 @@ gem 'rqrcode'
 gem 'rqrcode_png'
 gem 'chunky_png'
 gem "nested_form"
-
+gem 'counter_culture', '~> 1.8'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

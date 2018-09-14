@@ -1,0 +1,6 @@
+      <%= link_to "/likes/#{@micropost.id}", method: :post, 
+                                 remote: true do %>
+         <div class="btn btn-default like-btn">
+         <i class="fas fa-thumbs-up"></i>いいね
+         </div>
+      <% end %>

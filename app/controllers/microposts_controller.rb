@@ -2,8 +2,6 @@ class MicropostsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new]
     before_action :correct_user, only: [:destroy, :edit, :update]
     
-
-    
     def index
         @microposts = Micropost.all.paginate(page: params[:page]).search(params[:search])
     end
@@ -51,8 +49,6 @@ class MicropostsController < ApplicationController
         flash[:success] = "削除完了" 
         redirect_to request.referrer || root_url
     end
-    
-
     
     private
     

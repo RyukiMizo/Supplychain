@@ -1,0 +1,6 @@
+      <%= link_to "/likes/#{@micropost.id}", method: :delete,
+                                 remote: true do %>
+        <div class="btn btn-success like-btn">
+        <i class="fas fa-check"></i>いいね済み
+        </div>
+      <% end %>

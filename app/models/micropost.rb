@@ -8,6 +8,7 @@ class Micropost < ApplicationRecord
   validates :blocks, associated: true
   has_many :blocks, dependent: :destroy
   has_many :chains, dependent: :destroy
+  has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :blocks, allow_destroy: true
   
   
@@ -18,6 +19,7 @@ class Micropost < ApplicationRecord
       all
     end
   end
+
   
   private
   

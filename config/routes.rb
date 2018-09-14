@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get '/postpages', to: 'microposts#index'
   delete '/postpage/:id', to: 'microposts#destroy'
   
+  post '/likes/:id', to: 'likes#create'
+  resources :likes, only:[:destroy]
   
   
   resources :microposts, only:[:create, :update]
