@@ -1,23 +1,58 @@
-<% provide(:title, '商品一覧') %>
-<h1>商品一覧</h1>
-
-　<h2>商品数<%= @microposts.count %></h2>
-　<!-- 検索機能　-->
-　<div class="post-search">
-　  <%= form_tag '/postpages', method: :get do %>
-　  <%= text_field_tag :search %>
-　  <%= submit_tag '検索', product: nil %>
-　  <% if logged_in? %>
-　  <div class=" follow-index-btn">
-　    <%= link_to 'フォローユーザーの商品', '/postpages/follow', class: "btn btn-primary" %>
-  　</div>
-  　<% end %>
-  　<% end %>
-　</div>
-
-     <ol class="microposts-index">
-        <%= render @microposts %>
-     </ol>
-<%= will_paginate @microposts %>
+<% provide(:title, '商品') %>
+<h1>商品</h1>
+<p id="tab-control">
+    <a href="#pro-index">商品一覧</a>
+    <a href="#pro-follow">フォロー</a>
+    <a href="#pro-like">いいね</a>
+    <a href="#pro-active">アクティブ</a>
+</p>
+<div id="tab-body">
+    <div class="t-bodt", id="pro-index"><%= render 'pro_index' %></div>
+    <div class="t-bodt", id="pro-follow"><%= render 'users/follow_index' %></div>
+    <dic class="t-bodt", id="pro-like"></dic>
+    <div class="t-bodt", id="pro-active"></div>
+</div>
 
 
+
+<script type="text/javascript">
+
+   var tabs = document.getElementById('tab-control').getElementsByTagName('a');
+   var pages = document.getElementById('tab-body').getElementsByClassName('t-bodt');
+
+   function changeTab() {
+      // ▼href属性値から対象のid名を抜き出す
+      var targetid = this.href.substring(this.href.indexOf('#')+1,this.href.length);
+
+      // ▼指定のタブページだけを表示する
+      for(var i=0; i<pages.length; i++) {
+         if( pages[i].id != targetid ) {
+            pages[i].style.display = "none";
+         }
+         else {
+            pages[i].style.display = "block";
+         }
+      }
+
+      // ▼クリックされたタブを前面に表示する
+      for(var i=0; i<tabs.length; i++) {
+         tabs[i].style.zIndex = "0";
+         tabs[i].style.backgroundColor = "#EEEEEE";
+         
+      }
+      this.style.zIndex = "10";
+      this.style.backgroundColor = "white";
+
+      // ▼ページ遷移しないようにfalseを返す
+      return false;
+   }
+
+   // ▼すべてのタブに対して、クリック時にchangeTab関数が実行されるよう指定する
+   for(var i=0; i<tabs.length; i++) {
+      tabs[i].onclick = changeTab;
+   }
+
+   // ▼最初は先頭のタブを選択
+   tabs[0].onclick();
+
+</script>

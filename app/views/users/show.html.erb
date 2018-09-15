@@ -37,7 +37,7 @@
   </aside>
   <div class="col-md-8">
     <% if @user.microposts.any? %>
-      <h3>投稿数<%= @user.microposts.count %></h3>
+      <h3 class="post-count">投稿数<%= @user.microposts.count %></h3>
       <ol class="microposts-index">
         <%= render @microposts %>
       </ol>

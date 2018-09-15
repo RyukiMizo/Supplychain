@@ -155,6 +155,10 @@ aside {
   margin-top: 15px;
 }
 
+.post-count {
+  text-align: center;
+}
+
 /* forms */
 .edit, .new {
 input, select, .uneditable-input {
@@ -525,9 +529,7 @@ $base-color: #FFFFCC;
 
 /* post-index */
 
-.microposts-index {
 
-}
 .index-block {
   width: 40%;
   display: inline-block;
@@ -563,4 +565,45 @@ a.index-delete {
 /* like */
 .like-btn {
   width: 100%
+}
+
+/* tab */
+$background-color: #EEEEEE;
+$base-color: #333333;
+
+#tab-control {
+margin: 0;
+ a {
+  color: $base-color;
+  display: inline-block;
+  background-color: $background-color;
+  padding: 5px 10px;
+   padding: 0.75em 1em;    
+  border-width: 1px 1px 0px 1px;    /* 下以外の枠線を引く */
+   border-style: solid;              /* 枠線の種類：実線 */
+   border-color: #EEEEEE;              /* 枠線の色：黒色 */
+   border-radius: 0.75em 0.75em 0 0; /* 枠線の左上角と右上角だけを丸く */
+  text-decoration: none;  
+  margin: 0 10px 0 10px;
+  position: relative;   
+  
+  &:hover {
+    background-color: lighten($background-color, 2%);
+    color: lighten($base-color, 60%);
+  }
+ } 
+}
+
+#tab-body {
+
+  .t-bodt {
+  border-top: 1px solid #BBBBBB;
+  margin-top: -1px;
+   padding: 1em;            /* 内側の余白量 */
+   background-color: white; /* 背景色：白色 */
+   z-index: 0;    /* z-indexを調整するために必要 */
+                /* 重なり順序を「最も背面」にするため */
+
+     /* z-indexを調整するために必要 */
+}
 }
