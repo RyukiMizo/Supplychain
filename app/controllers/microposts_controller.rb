@@ -1,9 +1,17 @@
 class MicropostsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new]
     before_action :correct_user, only: [:destroy, :edit, :update]
-    
+    require 'will_paginate/array'
     def index
         @microposts = Micropost.all.paginate(page: params[:page]).search(params[:search])
+    end
+    
+    def active
+        @microposts = Micropost.unscoped.order(likes_count: :asc).paginate(page: params[:page]).search(params[:search])
+    end
+    
+    def like_index
+        @likes = current_user.likes
     end
     
     def new

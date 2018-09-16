@@ -571,7 +571,7 @@ a.index-delete {
 $background-color: #EEEEEE;
 $base-color: #333333;
 
-#tab-control {
+.tab-control {
 margin: 0;
  a {
   color: $base-color;
@@ -585,7 +585,6 @@ margin: 0;
    border-radius: 0.75em 0.75em 0 0; /* 枠線の左上角と右上角だけを丸く */
   text-decoration: none;  
   margin: 0 10px 0 10px;
-  position: relative;   
   
   &:hover {
     background-color: lighten($background-color, 2%);
@@ -594,16 +593,31 @@ margin: 0;
  } 
 }
 
-#tab-body {
+.tab-body {
 
   .t-bodt {
   border-top: 1px solid #BBBBBB;
   margin-top: -1px;
    padding: 1em;            /* 内側の余白量 */
    background-color: white; /* 背景色：白色 */
-   z-index: 0;    /* z-indexを調整するために必要 */
-                /* 重なり順序を「最も背面」にするため */
+   z-index: 2;    /* z-indexを調整するために必要 */
+  position: relative;            /* 重なり順序を「最も背面」にするため */
 
      /* z-indexを調整するために必要 */
 }
+}
+#pro-index, #pro-follow, #pro-like, #pro-active {
+  background-color: white;
+  position: relative;
+  z-index: 3;
+  border-width: 1px 1px 0px 1px;    /* 下以外の枠線を引く */
+  border-style: solid;              /* 枠線の種類：実線 */
+  border-color: #BBBBBB;              /* 枠線の色：黒色 */
+}
+
+.search-follow {
+  margin-top: 40px;
+}
+.search-follow-btn {
+  margin-left: 20px;
 }

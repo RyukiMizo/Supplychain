@@ -20,6 +20,12 @@ class Micropost < ApplicationRecord
     end
   end
 
+  def likepost(likes)
+    likes.each do |like|
+      like.micropost
+    end
+  end
+    
   
   private
   

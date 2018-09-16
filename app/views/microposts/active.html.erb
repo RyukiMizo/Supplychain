@@ -1,0 +1,25 @@
+<% provide(:title, 'アクティブ') %>
+
+<p class="tab-control">
+    <a href="/postpages">商品一覧</a>
+    <a href="/postpages/follow">フォロー</a>
+    <a href="/postpages/like">いいね</a>
+    <a href="/postpages/active", id="pro-active">アクティブ</a>
+</p>
+
+<div class="tab-body">
+    <div class="t-bodt">
+        <h2>アクティブな投稿</h2>
+        　<!-- 検索機能　-->
+　<div class="post-search">
+　  <%= form_tag '/postpages', method: :get do %>
+　  <%= text_field_tag :search %>
+　  <%= submit_tag '検索', product: nil %>
+  　<% end %>
+　</div>
+
+     <ol class="microposts-index">
+        <%= render @microposts %>
+     </ol>
+<%= will_paginate @microposts %>
+    </div>

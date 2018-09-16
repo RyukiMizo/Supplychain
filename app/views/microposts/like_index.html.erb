@@ -1,0 +1,35 @@
+<% provide(:title, 'いいね') %>
+
+<p class="tab-control">
+    <a href="/postpages">商品一覧</a>
+    <a href="/postpages/follow">フォロー</a>
+    <a href="/postpages/like", id="pro-like">いいね</a>
+    <a href="/postpages/active">アクティブ</a>
+</p>
+<div class="tab-body">
+    <div class="t-bodt">
+      <h2>いいねした投稿</h2>
+<% if @likes.any? %>
+  <ol class="microposts-index">
+  <% @likes.each do |like| %> 
+  <% micropost = like.micropost %>
+    <li class="index-block">
+    <div class="index-pic">
+    <%= link_to image_tag(micropost.photo.url) , "/postpage/#{micropost.id}" if micropost.photo? %><br>
+    </div>
+    <% if micropost.product.present? %>
+    <div class="index-under">
+      <%= link_to micropost.product, "/postpage/#{micropost.id}", class: "index-pro" %>
+    <% end %>
+        <% if current_user?(micropost.user) %>
+         <%= link_to '削除', "/postpage/#{micropost.id}", method: :delete,
+                      data: {confirm: "本当に削除してもよろしいですか？"},
+                      class: "index-delete" %>
+        <% end %>
+    </div>
+</li>
+<% end %>
+  </ol>
+<% end %>
+  
+  

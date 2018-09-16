@@ -1,0 +1,25 @@
+<% provide(:title, 'フォローユーザーの商品') %>
+<p class="tab-control">
+    <a href="/postpages">商品一覧</a>
+    <a href="/postpages/follow", id="pro-follow">フォロー</a>
+    <a href="/postpages/like">いいね</a>
+    <a href="/postpages/active">アクティブ</a>
+</p>
+<div class="tab-body">
+    <div class="t-bodt">
+<% if @microposts.any? %>
+  <!-- 検索　-->
+  <div class="post-search search-follow">
+  <%= form_tag '/postpages/follow', method: :get do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag '検索', product: nil, class: 'search-follow-btn' %>
+  <% end %>
+  </div>
+
+  <ol class="microposts-index">
+    <%= render @microposts %>
+  </ol>
+  <%= will_paginate @microposts %>
+<% end %>
+
+
