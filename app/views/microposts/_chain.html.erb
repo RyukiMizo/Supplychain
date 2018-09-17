@@ -2,7 +2,7 @@
 
 <% chain_count.times do |k| %>
 
-<div class="chain-1">
+
   
   <!-- 以下はchains[k]の中のdeepchainを展開することを目的とする。 -->
   <!-- chainの中にはたくさんのdeepchainがある。 -->
@@ -11,49 +11,51 @@
   
   <% deep_number.times do |d| %>
 
-  <% unless @deepchains[d].nil? %> <!-- 削除されていた場合　-->
-|<br>
-|<br>
-|<br>
-|<br>
-  <% end %>
-  
-  <div class="basic-block">
+ 
   <!-- 以下でdeepchains[d]の場所と日時を出力。 -->
-    <div class="block-infom">
-    <div id="place-1">
-      <%= @deepchains[d].place %>
-    </div>
-    <div id="date-1">
-      <%= @deepchains[d].date %><br>
-    </div>
+  
+  <div class="main-pro">
+  
+    <div class="col-md-4 main-pro4">
+      <div class="pro-date">
+        <%= @deepchains[d].date %>
+      </div>
     </div>
     
-    
-    <div class="chain-user">
-    　<!-- chains[n]を作ったユーザーを定義する。紐づいているuser_idから -->
+    <div class="col-md-5 block8">
+     <div>
       <% user = User.find_by(id: @chains[k].user_id) %>
+      
 　　　<% if user == current_user || current_user == @micropost.user %>
 　　　<%= link_to '削除', "/chains/#{@deepchains[d].id}", method: :delete,
                       data: {confirm: "本当に削除してもよろしいですか？"} %>
 　　　<% end %>
-      <%= image_tag user.thumbnail.url, :size => '47x47' if user.thumbnail? %>
-      <%= link_to user.name, user_path(user) %>
-    </div>
-    
-  </div>
-    <!-- deepchainのinformationとpictureを出力 -->
-    <div id="block-inf-1">
-      <div class="picture-n">
-        <%= image_tag @deepchains[d].chainpicture.url, class:'img-n' if @deepchains[d].chainpicture? %>
-        <div id="inf-1">
+　　　
+      <p class="manage">管理者：</p>
+      <div class="manage1">
+        <%= link_to user.name, user_path(user) %>
+        <%= image_tag user.thumbnail.url, :size => '47x47' if user.thumbnail? %>
+      </div>
+     </div>
+
+    <div>
+      <div class="proim">
+        <%= image_tag @deepchains[d].chainpicture.url, 
+                   :size => '97x97' if @deepchains[d].chainpicture? %>
+        <div class="proin">
         <%= simple_format(@deepchains[d].information) %>
         </div>
       </div>
+      <div class="propl">
+        <i class="fas fa-map-marker-alt"></i>
+        <%= @deepchains[d].place %>
+      </div>
+    
     </div>
-
-    <% end %>
-    <!-- ⬆️　deepchainが最後まで行ったら終わり -->
   
-      </div> 
+  <% end %>
+  </div>
 <% end %>
+
+     
+     

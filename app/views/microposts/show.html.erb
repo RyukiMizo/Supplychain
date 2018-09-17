@@ -1,26 +1,36 @@
 <% provide(:title, "#{@micropost.product}の詳細情報") %>
-<div class="row">
-  <div class="col-md-3">
-    
-    <!-- いいね！ボタン -->
-    <%= render 'like_form' %>
-
-          
-    <h1><%= @micropost.product %></h1>
-    <%= image_tag @micropost.photo.url, class: "product-image" if @micropost.photo? %><br>
-    <div class="qr"><%= qrcode_tag request.url, module_size: 2 %><br><br>
-    <% if @micropost.user == current_user %>
-      <%= link_to  "編集する", "/postpage/edit/#{params[:id]}", class: "btn btn-warning "%>
-    <% end %>
+<div class="a">
+    <div class="row cre-info">
+      <div class="col-md-2">
+        <%= image_tag @micropost.photo.url, :size => '147x147', 
+                      class: "pr-img" if @micropost.photo? %>
+      </div>
+      
+      <div class="col-md-3">
+         <h1 class="pr-name"><%= @micropost.product %></h1><br><br>
+         <%= link_to ("/users/#{@micropost.user_id}") do %>
+         <p class="pr-proname">作成者 <%= @micropost.user.name %></p>
+         <%= image_tag @micropost.user.thumbnail.url, 
+                    :size => '47x47' if @micropost.user.thumbnail? %>
+         <% end %>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="qr">
+          <%= qrcode_tag request.url, module_size: 2 %><br><br>
+          <% if @micropost.user == current_user %>
+             <%= link_to  "編集する", "/postpage/edit/#{params[:id]}", class: "btn btn-default active "%>
+          <% end %><br>
     <!-- もしchainの中身がない場合 -->
-    <%= link_to  "チェーンを追加する", "/chains/#{params[:id]}", class: "btn btn-success add-chain", role: 'button'%>
+          <%= link_to  "チェーンを追加する", "/chains/#{params[:id]}", class: "btn btn-success add-chain", role: 'button'%>
+              <!-- いいね！ボタン -->
+          <%= render 'like_form' %>
+        </div>
+      </div>
     </div>
+ 
     
-  </div>
-
-  <div class="col-md-9 product-trajectory">
-    <h1>ストーリー</h1>
+  <div>
     <%= render 'microposts/block' %>
   </div>
-
 </div>
