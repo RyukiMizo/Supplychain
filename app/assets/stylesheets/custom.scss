@@ -493,7 +493,8 @@ $base-color: #FFFFCC;
 .stats {
   overflow: auto;
   margin-top: 10px;
-  margin-left: 50px;
+  display: inline-block;
+  text-align: center;
   a {
     float: left;
     padding: 0 10px;

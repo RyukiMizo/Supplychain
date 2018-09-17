@@ -1,12 +1,12 @@
 <% provide(:title, "#{@micropost.product}の詳細情報") %>
 <div class="a">
     <div class="row cre-info">
-      <div class="col-md-2">
+      <div class="col-md-2 col-xs-6">
         <%= image_tag @micropost.photo.url, :size => '147x147', 
                       class: "pr-img" if @micropost.photo? %>
       </div>
       
-      <div class="col-md-3">
+      <div class="col-md-3 col-xs-6">
          <h1 class="pr-name"><%= @micropost.product %></h1><br><br>
          <%= link_to ("/users/#{@micropost.user_id}") do %>
          <p class="pr-proname">作成者 <%= @micropost.user.name %></p>
@@ -15,7 +15,7 @@
          <% end %>
       </div>
       
-      <div class="col-md-4">
+      <div class="col-md-4 col-xs-12">
         <div class="qr">
           <%= qrcode_tag request.url, module_size: 2 %><br><br>
           <% if @micropost.user == current_user %>

@@ -5,14 +5,14 @@
   <% if @blocks[n] %>
   <div class="main-pro">
   
-    <div class="col-md-4 main-pro4">
+    <div class="col-md-4 main-pro4 col-xs-4">
       <div class="pro-date">
 
         <%= @blocks[n].date %>
       </div>
     </div>
     
-    <div class="col-md-5 block8">
+    <div class="col-md-5 block8 col-xs-5">
      <div>
       <% post = Micropost.find_by(id: @blocks[n].micropost_id) %>
       <% user = User.find_by(id: post.user_id) %>
