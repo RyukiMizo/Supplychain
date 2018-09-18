@@ -24,14 +24,16 @@
      </div>
     
     <div>
+    
       <div class="proim">
         <%= image_tag @blocks[n].picture.url, 
                    :size => '97x97' if @blocks[n].picture? %>
-        <div class="proin">
+      
+      <div class="proin">
         <%= simple_format(@blocks[n].information) %>
-        </div>
       </div>
-           
+   </div>
+    
       <div class="propl">
         <i class="fas fa-map-marker-alt"></i>
         <%= @blocks[n].place %>
