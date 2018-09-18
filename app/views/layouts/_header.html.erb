@@ -1,7 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Branding", root_path, id: "logo" %>
     <nav>
+    <%= link_to root_path do %>
+    <div class="logo3">
+      <%= image_tag("logo3.png", size: '180x32') %>
+    </div>
+    <% end %>
+    
       
       <% if logged_in? %>
       <%= link_to  "投稿する", '/postpage/new', class: "btn btn-success headpost", role: 'button'%>
