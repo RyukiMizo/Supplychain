@@ -1,9 +1,6 @@
 <% chain_count = @chains.count %>
 
 <% chain_count.times do |k| %>
-
-
-  
   <!-- 以下はchains[k]の中のdeepchainを展開することを目的とする。 -->
   <!-- chainの中にはたくさんのdeepchainがある。 -->
   <% deep_number = @chains[k].deepchains.count %>

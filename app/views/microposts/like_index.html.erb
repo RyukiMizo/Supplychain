@@ -7,15 +7,17 @@
     <a href="/postpages/active">アクティブ</a>
 </p>
 <div class="tab-body">
-    <div class="t-bodt">
+    <div class="t-bodt row">
       <h2>いいねした投稿</h2>
 <% if @likes.any? %>
   <ol class="microposts-index">
   <% @likes.each do |like| %> 
   <% micropost = like.micropost %>
+  
     <li class="index-block">
     <div class="index-pic">
-    <%= link_to image_tag(micropost.photo.url) , "/postpage/#{micropost.id}" if micropost.photo? %><br>
+    <%= link_to image_tag(micropost.photo.url) ,"/postpage/#{micropost.id}",
+    class: "index-im" if micropost.photo? %><br>
     </div>
     <% if micropost.product.present? %>
     <div class="index-under">

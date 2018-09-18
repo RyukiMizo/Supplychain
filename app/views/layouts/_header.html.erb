@@ -4,16 +4,19 @@
     <nav>
       
       <% if logged_in? %>
-      <%= link_to  "投稿する", '/postpage/new', class: "btn btn-success postf", role: 'button'%>
+      <%= link_to  "投稿する", '/postpage/new', class: "btn btn-success headpost", role: 'button'%>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
         
         <% if not_logged_in? %>
         <li><%= link_to "ホーム", root_path %></li>
         <% end %>
-        
+
         <li><%= link_to "使い方", help_path %></li>
         <li><%= link_to "商品一覧", '/postpages' %></li>
+
+      
+
         <% if logged_in? %>
           <li><%= link_to "ユーザ一覧", users_path %></li>
 
@@ -30,6 +33,8 @@
               </li>
             </ul>
           </li>
+          
+
         <% else %>
           <li><%= link_to "ログイン", login_path %></li>
         <% end %>

@@ -677,4 +677,53 @@ margin: 0;
   color: #666666;
   
 }
+.headpost {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 770px){
+  body {
+    padding-top: 220px;
+  }
+  .qr {
+    padding-top: 10px;
+  }
+  .tab-control {
+    a{
+    font-size: 6px;
+    margin: 0 0 0 0;
+    }
+  }
+  .index-im {
+    img{
+    height: 100px;
+    }
+  }
+  .user-edit {
+    font-size: 20px;
+  }
+  .index-block {
+    width: 135px;
+    padding: 8px 8px 8px 8px;
+    display: inline-block;
+  }
+  .t-bodt {
+    padding: 0;
+  }
+  .microposts-index {
+    padding: 0;
+  }
+  input#search {
+    border: 1px solid black;
+  }
+  .search-follow {
+    margin-bottom: 20px;
+  }
+  .activeh2 {
+    margin: 20px 0 0 0;
+  }
+  
+}
+
 

@@ -8,13 +8,13 @@
 </p>
 
 <div class="tab-body">
-    <div class="t-bodt">
-        <h2>アクティブな投稿</h2>
+ <div class="t-bodt row">
+        <h2 class="activeh2">アクティブな投稿</h2>
         　<!-- 検索機能　-->
 　<div class="post-search">
 　  <%= form_tag '/postpages', method: :get do %>
 　  <%= text_field_tag :search %>
-　  <%= submit_tag '検索', product: nil %>
+　  <%= submit_tag '検索', class: "btn btn-default", product: nil %>
   　<% end %>
 　</div>
 

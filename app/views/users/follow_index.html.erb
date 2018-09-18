@@ -6,13 +6,13 @@
     <a href="/postpages/active">アクティブ</a>
 </p>
 <div class="tab-body">
-    <div class="t-bodt">
+    <div class="t-bodt row">
 <% if @microposts.any? %>
   <!-- 検索　-->
   <div class="post-search search-follow">
   <%= form_tag '/postpages/follow', method: :get do %>
   <%= text_field_tag :search %>
-  <%= submit_tag '検索', product: nil, class: 'search-follow-btn' %>
+  <%= submit_tag '検索', product: nil, class: 'btn btn-default search-follow-btn' %>
   <% end %>
   </div>
 

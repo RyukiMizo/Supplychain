@@ -1,6 +1,7 @@
 <li class="index-block">
     <div class="index-pic">
-    <%= link_to image_tag(micropost.photo.url) , "/postpage/#{micropost.id}" if micropost.photo? %><br>
+    <%= link_to image_tag(micropost.photo.url) , "/postpage/#{micropost.id}",
+    class: "index-im" if micropost.photo? %><br>
     </div>
     <% if micropost.product.present? %>
     <div class="index-under">
@@ -12,4 +13,5 @@
                       class: "index-delete" %>
         <% end %>
     </div>
+
 </li>
