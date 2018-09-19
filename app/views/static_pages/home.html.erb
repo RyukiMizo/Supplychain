@@ -1,16 +1,58 @@
 <div class="vege-relative">
-　<%= image_tag("vege2.png") %>
-　
- <div class="vege">
+　<%= image_tag("grape.png") %>
+  <div class="vege">
   <h1>全ての商品には<br>ストーリーがある</h1>
 <br><br><br>
   <h2>
-サプライチェーンを通じて、<br>商品の信頼を提供します
+    サプライチェーンを通じて、<br>商品の信頼を提供します
   </h2>
-</div>
+  </div>
 <% if not_logged_in? %>
   <%= link_to "無料で登録", signup_path, class: "btn btn-lg btn-primary" %>
 <% end %>
 </div>
 
+<div class="for-business row">
+    <h1 class="business-h1">消費者に分かりやすいストーリーを作る</h1>
+    <div class="col-md-6 col-xs-12">
+        <%= image_tag("business.png", :size => '200x200' ) %>
+        <h2>小売業者向け</h2>
+        <p>生産者等の情報と組み合わせることによって<br>
+        消費者を安心させ、付加価値を上げます</p>
+    </div>
+    
+    <div class="col-md-6 col-xs-12">
+        <%= image_tag("farmer.png", :size => '200x200' ) %>
+        <h2>生産者向け</h2>
+        <p>独自の価値やこだわりを、消費者に対して<br>
+        　　鮮明に伝えることができます</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<style>
+div.container {
+    padding: 0;
+    width: 100%;
+}
+.vege-relative {
+    padding: 0;
+    margin-top: -50px
+    
+}
+@media screen and (max-width: 770px){
+.vege-relative {
+    padding: 0;
+    margin: -40px;
+
+    
+}
+</style>
 
