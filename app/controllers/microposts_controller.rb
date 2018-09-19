@@ -2,6 +2,11 @@ class MicropostsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new]
     before_action :correct_user, only: [:destroy, :edit, :update]
     require 'will_paginate/array'
+    require 'rqrcode'
+    require 'rqrcode_png'
+    require 'chunky_png'
+
+
     def index
         @microposts = Micropost.all.paginate(page: params[:page]).search(params[:search])
     end

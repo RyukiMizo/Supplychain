@@ -17,7 +17,7 @@
       
       <div class="col-md-4 col-xs-12">
         <div class="qr">
-          <%= qrcode_tag request.url, module_size: 2 %><br><br>
+          <%= image_tag qrcode_tag request.url %><br><br>
           <% if @micropost.user == current_user %>
              <%= link_to  "編集する", "/postpage/edit/#{params[:id]}", class: "btn btn-default active "%>
           <% end %><br>

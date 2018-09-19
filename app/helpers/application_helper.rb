@@ -8,10 +8,14 @@ module ApplicationHelper
         end
     end
     
+require 'rqrcode'
+require 'rqrcode_png'
+require 'chunky_png'
 
 def qrcode_tag(text, options = {})
-    ::RQRCode::QRCode.new(text).as_svg(options).html_safe
+
+    qr = ::RQRCode::QRCode.new(text, )
+ return ChunkyPNG::Image.from_datastream(qr.as_png.resize(250,250).to_datastream).to_data_url
 end
 
-        
 end
