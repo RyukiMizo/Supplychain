@@ -2,14 +2,16 @@
 　<%= image_tag("grape.png") %>
   <div class="vege">
   <h1>全ての商品には<br>ストーリーがある</h1>
-<br><br><br>
-  <h2>
-    サプライチェーンを通じて、<br>商品の信頼を提供します
-  </h2>
+<br><br>  
+  <% if not_logged_in? %>
+  <div class="vege-btn">
+  <%= link_to "無料で登録", signup_path, class: "btn btn-light" %>
   </div>
-<% if not_logged_in? %>
-  <%= link_to "無料で登録", signup_path, class: "btn btn-lg btn-primary" %>
-<% end %>
+  <% end %><br>
+  <h2>サプライチェーンを通じて、<br>商品の信頼を提供します</h2>
+
+  </div>
+
 </div>
 
 <div class="for-business row">

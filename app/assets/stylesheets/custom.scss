@@ -761,7 +761,17 @@ margin: 0;
     font-size: 25px;
     font-family: serif;
   }
+  .btn {
+    background-color: white;
+    width: 100%;
+    
+    &:hover {
+      opacity: 0.4;
+      
+    }
+  }
 }
+
 
 @media screen and (max-width: 770px){
   .vege {
@@ -771,13 +781,21 @@ margin: 0;
     h2 {
       font-size: 17px;
     }
+    
+    
    
+  }
+  .home-home, .home-use, .home-index, .home-login, .dropdown {
+    padding-left: 20px;
+  }
+  .for-business {
+    margin: 30px 30px 0 30px;
   }
 }
 
 /*home business*/
 .for-business {
-  padding-top: 20px;
+  padding-top: 30px;
   text-align: center;
 
 .business-h1 {
@@ -789,7 +807,7 @@ img {
   border-radius: 100px;
 }
  h2 {
-   font-weight: bold<;
+   font-weight: bold;
  }
 }
 
