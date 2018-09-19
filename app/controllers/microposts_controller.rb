@@ -1,12 +1,27 @@
 class MicropostsController < ApplicationController
-    before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new]
+    before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new, :qrcode]
     before_action :correct_user, only: [:destroy, :edit, :update]
     require 'will_paginate/array'
     require 'rqrcode'
     require 'rqrcode_png'
     require 'chunky_png'
 
-
+    def qrcode
+     @micropost = Micropost.find(params[:id])
+     options = {
+       fill: 'white',
+       color: 'black',
+       size: 200,
+       border_modules: 3,
+       module_px_size: 5,
+       file: nil,
+     }
+      text = request.url
+      qrcode = RQRCode::QRCode.new(text).as_png(options)
+      send_data(qrcode, type: 'image/png', filename: "#{@micropost.product}.png")
+    end
+    
+    
     def index
         @microposts = Micropost.all.paginate(page: params[:page]).search(params[:search])
     end

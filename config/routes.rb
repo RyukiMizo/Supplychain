@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/postpages/follow', to: 'users#follow_index'
   get 'postpages/like', to: 'microposts#like_index'
   get '/postpages/active', to: 'microposts#active'
+  post '/qrcode/:id', to: 'microposts#qrcode'
   get '/postpages', to: 'microposts#index'
   delete '/postpage/:id', to: 'microposts#destroy'
   
