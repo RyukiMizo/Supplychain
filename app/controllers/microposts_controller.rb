@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-    before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new, :qrcode]
+    before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new, :qrcode, :like_index]
     before_action :correct_user, only: [:destroy, :edit, :update]
     require 'will_paginate/array'
     require 'rqrcode'

@@ -689,7 +689,7 @@ margin: 0;
 
 @media screen and (max-width: 770px){
   body {
-    padding-top: 220px;
+    padding-top: 100px;
   }
   .qr {
     padding-top: 10px;
@@ -776,6 +776,12 @@ margin: 0;
 
 
 @media screen and (max-width: 770px){
+  .navbar-right {
+    li {
+      font-size: 8px;
+      float: left;
+    }
+  }
   .vege {
     h1 {
       font-size: 30px;
@@ -788,7 +794,9 @@ margin: 0;
    
   }
   .home-home, .home-use, .home-index, .home-login, .dropdown {
-    padding-left: 20px;
+    padding-left: 5px;
+    font-size: 8px;
+    float: left;
   }
   .for-business {
     margin: 30px 30px 0 30px;

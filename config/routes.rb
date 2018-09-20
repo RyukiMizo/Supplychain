@@ -46,4 +46,5 @@ Rails.application.routes.draw do
   resources :chains, only:[:update]
   
   resources :relationships, only:[:destroy, :create]
+  resources :account_activations, only:[:edit]
  end
