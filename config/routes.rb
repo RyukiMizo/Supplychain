@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   get '/help', to: 'static_pages#help'
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
+    post '/inquiry', to: 'static_pages#create' 
   get '/signup', to: 'users#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
   resources :users do
     member do
       get :following, :followers
@@ -47,4 +49,6 @@ Rails.application.routes.draw do
   
   resources :relationships, only:[:destroy, :create]
   resources :account_activations, only:[:edit]
+
+
  end

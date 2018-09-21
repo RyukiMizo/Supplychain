@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180920064342) do
+ActiveRecord::Schema.define(version: 20180921071905) do
 
   create_table "blocks", force: :cascade do |t|
     t.date "date"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20180920064342) do
     t.datetime "updated_at", null: false
     t.text "place"
     t.index ["chain_id"], name: "index_deepchains_on_chain_id"
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.text "message"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "introductions", force: :cascade do |t|

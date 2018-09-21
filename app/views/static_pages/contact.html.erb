@@ -1,2 +1,23 @@
-<% provide(:title, "Contact") %>
-<h1>Contact</h1>
+<% provide(:title, "お問い合わせ") %>
+<h1>お問い合わせ</h1>
+<div class="new">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 col-xs-10">
+    <%= form_for(@inquiry, url: "/inquiry") do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :name, "名前" %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+   
+      <%= f.label :message,"お問い合わせ内容" %><br>
+      <%= f.text_area :message, class: "message-information" %>
+     
+      <div class="submit">
+      <%= f.submit "お問い合わせ", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
