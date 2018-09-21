@@ -776,6 +776,9 @@ margin: 0;
 
 
 @media screen and (max-width: 770px){
+  .headpost {
+    margin: 0;
+  }
   .navbar-right {
     li {
       font-size: 8px;
@@ -794,7 +797,7 @@ margin: 0;
    
   }
   .home-home, .home-use, .home-index, .home-login, .dropdown {
-    padding-left: 5px;
+    padding-left: 3px;
     font-size: 8px;
     float: left;
   }
@@ -881,3 +884,4 @@ img {
    }
   
 }
+
