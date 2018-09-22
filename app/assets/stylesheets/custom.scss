@@ -912,8 +912,15 @@ footer {
 
 .help-activation {
     border: 1px solid black;
-    width: 100%;
+    width: 80%;
     object-fit: cover;
+}
+.check-privacy {
+  display: inline-block;
+}
+.privacy {
+  width: 80%;
+  object-fit: cover;
 }
 
 

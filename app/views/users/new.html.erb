@@ -25,10 +25,13 @@
       <%= f.label :thumbnail,"プロフィール画像", class: "btn btn-warning btn-pro" %>
       <%= f.file_field :thumbnail, accept: 'image/jpeg,image/gif,image/png',
            style: "display:none;"%>
-      </span>
-      
-      
-      
+      </span><br><br>
+
+      <%= f.label :accepted, class: "checkbox inline" do %>
+      <%= f.check_box :accepted %>
+        <span>利用規約とプライバシーポリシーに同意する</span>
+      <% end %>
+      (<a href="/privacy" target="_blank" class="check-privacy">利用規約とプライバシーポリシー</a>)
       <div class="submit">
       <%= f.submit "アカウントを作る", class: "btn btn-primary" %>
       </div>

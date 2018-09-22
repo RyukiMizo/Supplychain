@@ -1,6 +1,15 @@
 class StaticPagesController < ApplicationController
+  
+  def producer
+  end
+  
+　def retailing
+　end
+　
+  def privacy
+  end
+  
   def home
-
   end
 
   def help

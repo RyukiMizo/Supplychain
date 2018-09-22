@@ -8,11 +8,16 @@ Rails.application.routes.draw do
   get '/help', to: 'static_pages#help'
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
-    post '/inquiry', to: 'static_pages#create' 
+  post '/inquiry', to: 'static_pages#create' 
+  get '/privacy', to: 'static_pages#privacy'  
+  get '/producer', to: 'static_pages#producer'
+  get '/retailing', to: 'static_pages#retailing'
+  
   get '/signup', to: 'users#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
   
   resources :users do
     member do
