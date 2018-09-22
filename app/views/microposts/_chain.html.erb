@@ -18,21 +18,18 @@
         <%= @deepchains[d].date %>
       </div>
     </div>
-    
+   <% user = User.find_by(id: @chains[k].user_id) %>   
     <div class="col-md-5 block8">
-     <div>
-      <% user = User.find_by(id: @chains[k].user_id) %>
-      
-　　　<% if user == current_user || current_user == @micropost.user %>
-　　　<%= link_to '削除', "/chains/#{@deepchains[d].id}", method: :delete,
-                      data: {confirm: "本当に削除してもよろしいですか？"} %>
-　　　<% end %>
-　　　
+      <div class="chainleft">
       <p class="manage">管理者：</p>
       <div class="manage1">
         <%= link_to user.name, user_path(user) %>
         <%= image_tag user.thumbnail.url, :size => '47x47' if user.thumbnail? %>
-      </div>
+    　　<% if user == current_user || current_user == @micropost.user %>
+　        　　<%= link_to '削除', "/chains/#{@deepchains[d].id}", method: :delete,
+                      data: {confirm: "本当に削除してもよろしいですか？"} %>
+　　  　<% end %>
+       </div>
      </div>
 
     <div>

@@ -34,7 +34,7 @@
     <%= image_tag("qr.png", :size => '200x200' ) %>
     <h2>普通のラベルを超えてみませんか</h2>
     <p>QRコードを付与することで消費者は
-    すぐにBrandingにアクセスできます。<br>
+    すぐにBrandingにアクセスできます。QRコードを活用すると、ビジネスの範囲は拡大します！<br>
     買い物をする時、その商品がどのようなプロセスを
     辿ってきたかを知ることは、<br>消費者に対して
     この上ない安心感を与えます。</p>
@@ -63,7 +63,9 @@
 
 </div>
 
-
+<div class="last-btn">
+  <%= link_to "無料で登録", signup_path, class: "btn btn-primary ss" %>
+</div>
 
 
 
@@ -71,6 +73,10 @@
 
 
 <style>
+.alert {
+    margin-top: -30px;
+}
+
 .nav-head {
     padding-left: 15px;
 }
@@ -88,8 +94,10 @@ div.container {
 .vege-relative {
     padding: 0;
     margin: -40px;
-
-    
+}
+.alert {
+    margin-top: -20px;
+}
 }
 </style>
 

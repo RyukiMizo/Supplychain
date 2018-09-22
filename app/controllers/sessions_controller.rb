@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new
   end
   
@@ -6,9 +7,9 @@ class SessionsController < ApplicationController
   user = User.find_by(email: params[:session][:email].downcase)
   if user && user.authenticate(params[:session][:password])
     if user.activated?
-      　log_in user
-      　params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-     　  redirect_back_or(user)
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)                       
+        redirect_back_or(user)
     else
         message  = "本登録が完了していません. "
         message += "メールをチェックして, 本登録を完成させてください."
