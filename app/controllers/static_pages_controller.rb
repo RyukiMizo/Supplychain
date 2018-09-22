@@ -3,9 +3,8 @@ class StaticPagesController < ApplicationController
   def producer
   end
   
-　def retailing
-　end
-　
+  def retailing
+  end
   def privacy
   end
   
