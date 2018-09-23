@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
     
     before_action :logged_in_user, only: [:create, :destroy]
-    after_action :create_notifications, only: [:create]
+    after_action :create_notics, only: [:create]
     
     def create
         @micropost = Micropost.find(params[:id]) 
@@ -28,9 +28,9 @@ class LikesController < ApplicationController
     
     private
     
-    def create_notifications
+    def create_notics
         return if @micropost.user_id == current_user.id
-        Notification.create(user_id: @article.user.id,
+        Notic.create(user_id: @article.user.id,
         notified_by_id: current_user.id,
         article_id: @article.id,
         notified_type: 'いいね')
