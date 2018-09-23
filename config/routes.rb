@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'notifications/link_through'
+
   get 'sessions/new'
 
   get 'users/new'
@@ -55,5 +57,7 @@ Rails.application.routes.draw do
   resources :relationships, only:[:destroy, :create]
   resources :account_activations, only:[:edit]
 
-
+  get 'notifications/:id/link_through', to: 'notifications#link_through',
+  as: :link_through
+  get 'notifications', to: 'notifications#index'
  end

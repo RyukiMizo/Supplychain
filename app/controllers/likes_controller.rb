@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
     
     before_action :logged_in_user, only: [:create, :destroy]
+    after_action :create_notifications, only: [:create]
     
     def create
         @micropost = Micropost.find(params[:id]) 
@@ -23,5 +24,15 @@ class LikesController < ApplicationController
           format.html{redirect_to request.referrer || root_url}
           format.js
         end
+    end
+    
+    private
+    
+    def create_notifications
+        return if @micropost.user_id == current_user.id
+        Notification.create(user_id: @article.user.id,
+        notified_by_id: current_user.id,
+        article_id: @article.id,
+        notified_type: 'いいね')
     end
 end
