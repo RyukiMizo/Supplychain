@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = current_user.notifications
+    @notifications = current_user.notics
   end
   def link_through
     @notification = Notic.find(params[:id])
