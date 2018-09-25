@@ -8,7 +8,7 @@
      <%= render current_user.notics.where(read: false).order('created_at DESC').last(5) %>
      <li class="divider" role="separator"> </li>
      <li class="text-center">
-     <%= link_to '通知一覧を見る', notifications_path %>
+     <%= link_to '通知一覧を見る', notics_path %>
      </li>
   </ul>
 </li>

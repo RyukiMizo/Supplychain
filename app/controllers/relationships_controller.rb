@@ -22,8 +22,10 @@ class RelationshipsController < ApplicationController
     
     private
     def create_notics
-        Notic.create(user_id: @user.id,
+        @notic = @user.notics.build(
                              notified_by_id: current_user.id,
                              notified_type: 'フォロー')
+        @notic.save
     end
+    
 end

@@ -17,7 +17,9 @@ class LikesController < ApplicationController
     
     def destroy
         @micropost = Micropost.find(params[:id]) 
+       
         @like = current_user.likes.find_by(micropost_id: params[:id])
+        
         @like.destroy
         @micropost.reload
         respond_to do |format|
@@ -30,9 +32,9 @@ class LikesController < ApplicationController
     
     def create_notics
         return if @micropost.user_id == current_user.id
-        Notic.create(user_id: @article.user.id,
-        notified_by_id: current_user.id,
-        article_id: @article.id,
-        notified_type: 'いいね')
+        @notic = @micropost.user.notics.build(notified_by_id: current_user.id,
+        micropost_id: @micropost.id,
+        notified_type: 'いいね' )
+        @notic.save
     end
 end
