@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get '/privacy', to: 'static_pages#privacy'  
   get '/producer', to: 'static_pages#producer'
   get '/retailing', to: 'static_pages#retailing'
+  get '/payform', to: 'static_pages#payform'
+  post 'pay', to: 'static_pages#pay'
+  get '/law', to: 'static_pages#law'
   
   get '/signup', to: 'users#new'
   get    '/login',   to: 'sessions#new'

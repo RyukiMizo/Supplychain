@@ -1,10 +1,15 @@
-<%= current_user.notics.where(read: false).count %>
+<% count = current_user.notics.where(read: false).count %>
 <li class="dropdown dropdown-index">
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+  <a class="dropdown-toggle drop-bell" data-toggle="dropdown" href="#">
+    　<% if count == 0 %> 
       <i class="far fa-bell fa-2x" aria-hidden="true"></i>
+      <% else %>
+      <i class="fas fa-bell fa-2x" aria-hidden="true"></i>
+      <div class="count-number"><%= count %></div>
+      <% end %>
   </a>
   <ul class="dropdown-menu">
-     <li class="dropdown-header text-center">通知<%= current_user.notics.where(read: false).count %></li>
+     <li class="dropdown-header text-center">未読通知<%= count %>件</li>
      <%= render current_user.notics.where(read: false).order('created_at DESC').last(5) %>
      <li class="divider" role="separator"> </li>
      <li class="text-center">

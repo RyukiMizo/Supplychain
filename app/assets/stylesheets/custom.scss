@@ -775,15 +775,14 @@ margin: 0;
 }
 
   .navbar-nav .open .dropdown-menu {
-    left: -50px;
+    left: -200px;
   }
 @media screen and (max-width: 770px){
   .navbar-nav .open .dropdown-menu {
 
     position: absolute;
-    left: -50px;
+   
     float: none;
-    width: 30px;
     margin-top: 0;
     background-color: white;
     border: 0;
@@ -791,7 +790,7 @@ margin: 0;
   }
   .dropdown-menu {
     padding: 0;
-    width: 30px;
+    width: 70px;
     
   }
 .navbar-inverse .navbar-nav .open .dropdown-menu > .drop-user > a {
@@ -966,6 +965,19 @@ footer {
   
 
 }
-
+.count-number {
+  display: inline-block;
+  background-color: red;
+  color: white;
+  padding: 0 7px 0 5px;
+  border-radius: 2px;
+}
+.dropdown-index {
+  .dropdown-menu {
+    li {
+      margin-left: 30px;
+    }
+  }
+}
 
 

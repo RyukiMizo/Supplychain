@@ -1,4 +1,16 @@
 class StaticPagesController < ApplicationController
+  def law
+  end
+  def payform
+  end
+  def pay
+    Payjp.api_key = 'sk_test_3f6dafed676cad30649e06a7'
+    charge = Payjp::Charge.create(
+    :amount => 1980,
+    :card => params['payjp-token'],
+    :currency => 'jpy',
+    )
+  end
   
   def producer
   end

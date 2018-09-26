@@ -27,7 +27,7 @@
         <% end %></li>
 
         <% if logged_in? %>
-          <li><%= render 'notics/notic_dropdown' %></li>
+          
 
 
 <li class="dropdown dropdown-user">
@@ -52,6 +52,7 @@
     　</li>
   </ul>
 </li>
+<li><%= render 'notics/notic_dropdown' %></li>
 
         <% else %>
           <li class="home-login"><%= link_to login_path do %>
