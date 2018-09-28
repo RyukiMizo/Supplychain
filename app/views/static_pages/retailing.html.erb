@@ -1,0 +1,118 @@
+<%= provide(:title, "小売業者のため") %>
+<div class="vege-relative">
+　<%= image_tag("business3.png") %>
+  <div class="vege">
+  <h1 class="black">ビジネスに活用する</h1>
+<br><br>  
+
+  </div>
+
+</div>
+
+<div class="for-business">
+
+<div class="row">
+    <div class="col-md-6 mobilepng">
+        <h2>視覚的に分かりやすいストーリーを提供する</h2>
+        <p>Brandingを使用することによって消費者に、背後に存在するストーリーを届けることができます。</p>
+    </div>
+    <div class="col-md-6">
+        <%= image_tag("mobile.png", :size => '500x270') %>
+    </div>
+</div>
+
+
+</div>
+
+<div class="mac-screen">
+    <div class="mac">
+    
+    </div>
+        <h1>消費者は何よりも安全を求めています</h1>
+<p>買い物客の10人に8人は、どこから商品が来たのか気になっています。<br>
+今の小売業者さんは、そのような消費者の欲求を満たせていないのが現状です。<br><br>
+「売り上げをあげたい、他の商品と差別化をはかりたい。」<br>
+その要望に応えるのは「商品の透明性を示す」ことが不可欠です。
+
+</p>
+
+</div>
+
+<div class="brand2">
+    <h1>ブランドの信頼を高める</h1>
+    <div class="row">
+        <div class="col-md-6">
+          <%= image_tag("mobile2.png", :size => '500x400' ) %>
+        </div>
+        <div class="col-md-6">
+         <h2>ものができるまでには沢山の人が関わっています。</h2>
+         <p>サプライチェーンで、製品の背後にある人々、場所、プロセスを紹介してください。<br>
+         信頼性を高めるためには、商品のストーリーの透明性を確保することが大切です。<br>
+         それは、あなただけではなく関わっている方々にとってもメリットのあることです。</p>
+    </div>
+    </div>
+</div>
+
+<div class="home-qr">
+    <%= image_tag("qr.png", :size => '200x200' ) %>
+    <h2>QRコードで消費者に届ける</h2>
+    <p>例えば、QRコードを商品に付与することで、消費者は
+    すぐにBrandingにアクセスできます。<br>
+    今の買い物客はスマートフォンを持っていることが多いでしょう。<br>
+    QRコードで商品の透明性がわかればその商品の信頼度は確実に上がります！<br><br><br>
+    QRコード以外でも構いません。<br>
+    もしあなたが通販で商品を販売している場合は、
+    Brandingのページ情報を埋め込んでください。<br>そうすることで、消費者はすぐにアクセスできます。
+    </p>
+</div>
+
+
+<div class="last-btn">
+  <%= link_to "無料で登録", signup_path, class: "btn btn-primary ss" %>
+</div>
+
+
+
+
+
+
+<style>
+.navbar-right {
+    margin-right: 110px;
+}
+.logo3 {
+    margin-left: 130px;
+}
+.alert {
+    margin-top: -30px;
+}
+
+.nav-head {
+    padding-left: 15px;
+}
+div.container {
+    padding: 0;
+    width: 100%;
+    
+}
+.vege-relative {
+    padding: 0;
+    margin-top: -50px
+    
+}
+@media screen and (max-width: 770px){
+.vege-relative {
+    padding: 0;
+    margin: -40px;
+}
+.alert {
+    margin-top: -20px;
+}
+.navbar-right {
+    margin-right: 0;
+}
+.logo3 {
+    margin-left: 20px;
+}
+}
+</style>
