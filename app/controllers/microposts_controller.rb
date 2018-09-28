@@ -1,6 +1,8 @@
 class MicropostsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy, :edit, :update, :new, :qrcode, :like_index]
     before_action :correct_user, only: [:destroy, :edit, :update]
+    before_action :not_payed, only: [:create]
+    before_action :not_payed_qr, only: [:qrcode]
     require 'will_paginate/array'
     require 'rqrcode'
     require 'rqrcode_png'
@@ -19,6 +21,7 @@ class MicropostsController < ApplicationController
       text = request.url
       qrcode = RQRCode::QRCode.new(text).as_png(options)
       send_data(qrcode, type: 'image/png', filename: "#{@micropost.product}.png")
+      current_user.update_attribute(:qr, current_user.qr + 1)
     end
     
     
@@ -90,4 +93,16 @@ class MicropostsController < ApplicationController
         @micropost = current_user.microposts.find_by(id: params[:id])
         redirect_to root_url if @micropost.nil?
     end
+    
+  def not_payed
+    if current_user.pay == false && current_user.microposts.count >= 2
+      redirect_to '/payform'
+    end
+  end
+  
+  def not_payed_qr
+    if current_user.pay == false && current_user.qr >= 50
+      redirect_to '/payform'
+    end
+  end
 end

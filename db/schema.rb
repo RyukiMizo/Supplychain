@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180925053248) do
+ActiveRecord::Schema.define(version: 20180928011003) do
 
   create_table "blocks", force: :cascade do |t|
     t.date "date"
@@ -125,6 +125,9 @@ ActiveRecord::Schema.define(version: 20180925053248) do
     t.boolean "activated", default: false
     t.datetime "activated_at"
     t.boolean "accepted", default: false, null: false
+    t.boolean "pay", default: false, null: false
+    t.integer "qrcount"
+    t.integer "qr", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

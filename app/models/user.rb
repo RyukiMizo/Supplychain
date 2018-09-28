@@ -9,8 +9,8 @@ class User < ApplicationRecord
     has_many :passive_relationships, class_name: "Relationship",
              foreign_key: "followed_id", dependent: :destroy
              
-    has_many :following, through: :active_relationships, source: :followed
-    has_many :followers, through: :passive_relationships, source: :follower
+    has_many :following, through: :active_relationships, source: :followed, dependent: :destroy
+    has_many :followers, through: :passive_relationships, source: :follower, dependent: :destroy
     has_many :likes, dependent: :destroy
     has_many :notics, dependent: :destroy
     attr_accessor :remember_token, :activation_token, :reset_token
@@ -43,6 +43,8 @@ class User < ApplicationRecord
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
   end
+  
+
   
    # 渡されたトークンがダイジェストと一致したらtrueを返す
   def authenticated?(attribute, token)
